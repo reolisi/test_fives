@@ -1,0 +1,1442 @@
+&HEAD CHID='fives' , TITLE='fives'/
+
+
+
+&MESH IJK= 123 , 68 , 56 , XB= -0.7 , 23.9 , -6.8 , 6.8 , -0.6 , 10.6/
+&MESH IJK= 116 , 68 , 37 , XB= 23.9 , 47.1 , -6.8 , 6.8 , -0.6 , 6.8/
+&MESH IJK= 21 , 16 , 37 , XB= 47.1 , 51.3 , -6.8 , -3.6 , -0.6 , 6.8/
+&MESH IJK= 21 , 16 , 37 , XB= 47.1 , 51.3 , 3.6 , 6.8 , -0.6 , 6.8/
+&MESH IJK= 21 , 36 , 20 , XB= 47.1 , 51.3 , -3.6 , 3.6 , -0.6 , 3.4/
+&MESH IJK= 25 , 68 , 20 , XB= 51.3 , 56.3 , -6.8 , 6.8 , -0.6 , 3.4/
+&MESH	 IJK=	126	,	13	,	68	,XB=	-26.3	,	-0.7	,	2.4	,	5.0	,	3.4	,	17.0	,/
+&MESH	 IJK=	126	,	13	,	68	,XB=	-26.3	,	-0.7	,	-6.4	,	-3.8	,	3.4	,	17.0	,/
+
+
+&TIME T_END=1800. /
+
+	/Communication escalier
+
+&HOLE XB= -0.9 , 0.1 , 2.8 , 4.7 , 6.8 , 9.8 / Sorties coté CHR
+&HOLE XB= -0.9 , 0.1 , -6.1 , -4.2 , 6.8 , 9.8 /
+&HOLE XB= -0.9 , 0.1 , 2.8 , 4.7 , 3.4 , 6 /
+&HOLE XB= -0.9 , 0.1 , -6.1 , -4.2 , 3.4 , 6 /
+
+	////////////////////////////
+		REAC
+
+&REAC FUEL       = 'METHANE'
+      SOOT_YIELD = 0.10
+
+
+&VENT XB= 22 , 26 , 0.4 , 1.4 , 0 , 0 , SURF_ID='FIRE'/
+
+&SURF ID='FIRE',COLOR='RED',HRRPUA=600.,TAU_Q=-600/
+
+
+	////////////////////////////
+		-SSI
+
+&SURF ID='désenfumage quais plafond', VOLUME_FLOW=1.2 , TAU_V=0./
+&VENT XB= 52.1 , 53.1 , 4.7 , 3.7 , 2.7 , 2.7 , SURF_ID='désenfumage quais plafond' ,COLOR='ORANGE'/
+&VENT XB= 52.1 , 53.1 , -4.7 , -3.7 , 2.7 , 2.7 , SURF_ID='désenfumage quais plafond' ,COLOR='ORANGE'/
+
+&SURF ID='désenfumage quais mur', VOLUME_FLOW=-1.2 , TAU_V=0./
+&VENT XB= 3.5 , 3.5 , 3 , 3.6 , 1.9 , 2.7 , SURF_ID='désenfumage quais mur' ,COLOR='ORANGE'/
+&VENT XB= 3.5 , 3.5 , -3 , -3.6 , 1.9 , 2.7 , SURF_ID='désenfumage quais mur' ,COLOR='ORANGE'/
+
+&SURF ID='désenfumage intermédiare mur', VOLUME_FLOW=-5.7 , TAU_V=0./
+&VENT XB= 23 , 23 , -1 , -1 , 8.9 , 9.9 , SURF_ID='désenfumage quais mur' ,COLOR='ORANGE'/
+
+
+&SURF ID='désenfumage intermédiare plafond', VOLUME_FLOW=-5.7 , TAU_V=0./
+&VENT XB= 24 , 26 , -1 , -1 , 6.1 , 6.1 , SURF_ID='désenfumage quais mur' ,COLOR='ORANGE'/
+
+	////////////////////////////
+
+		Conditions aux limites
+
+&VENT XB= -26.3 , -0.7 , 2.4 , 5.0 , 17.0 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -26.3 , -26.3 , 2.4 , 5.0 , 14.4 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -0.7 , -0.7 , 2.4 , 5.0 , 14.4 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -26.3 , -0.7 , 2.4 , 2.4 , 14.4 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -26.3 , -0.7 , 5.0 , 5.0 , 14.4 , 17.0 , SURF_ID='OPEN'/
+
+&VENT XB= -26.3 , -0.7 , -6.4 , -3.8 , 17.0 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -26.3 , -26.3 , -6.4 , -3.8 , 14.4 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -0.7 , -0.7 , -6.4 , -3.8 , 14.4 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -26.3 , -0.7 , -6.4 , -6.4 , 14.4 , 17.0 , SURF_ID='OPEN'/
+&VENT XB= -26.3 , -0.7 , -3.8 , -3.8 , 14.4 , 17.0 , SURF_ID='OPEN'/
+
+
+	////////////////////////////
+
+
+
+Structure principale:
+&OBST XB= 0.0 , 55.6 , -6.1 , 6.1 , -0.7 , 0.0 , COLOR='GOLD'/
+
+&OBST XB= 0.0 , 55.6 , -4.4 , 4.4 , 2.7 , 3.4 , COLOR='GOLD' / placher: quais - niveau intermédiaire
+&OBST XB= 0 , 7.6 , -6.1 , -4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 7.6 , 14.4 , -4.2 , -4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 7.6 , 14.4 , 4.2 , 4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 14.6 , 14.4 , -4.2 , -6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 14.6 , 14.4 , 4.2 , 6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 14.4 , 21.16 , -6.1 , -4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 21.16 , 28.3 , -4.2 , -4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 21.16 , 28.3 , 4.2 , 4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 28.5 , 28.3 , -4.2 , -6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 28.5 , 28.3 , 4.2 , 6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 28.3 , 34.5 , -6.1 , -4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 34.5 , 41.3 , 4.2 , 4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 34.5 , 41.3 , -4.2 , -4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 41.5 , 41.3 , 4.2 , 6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 41.5 , 41.3 , -4.2 , -6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 41.3 , 43.8 , -6.1 , -4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 43.8 , 46.4 , -4.2 , -4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 43.8 , 46.4 , 4.2 , 4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GOLD'/
+&OBST XB= 50.6 , 55.6 , -6.1 , -4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 0 , 4.6 , 6.1 , 4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 14.4 , 21.16 , 6.1 , 4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 28.3 , 34.5 , 6.1 , 4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 41.3 , 43.8 , 6.1 , 4.4 , 2.7 , 3.4 , COLOR='GOLD' /
+&OBST XB= 50.6 , 55.6 , 6.1 , 4.4 , 2.7 , 3.4 , COLOR='GOLD' / fin placher: quais - niveau intermédiaire
+
+
+&OBST XB= 0.0 , 12.8 , -6.1 , 6.1 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/ placher: niveau intermédiaire - salle des billets
+&OBST XB= 14.1 , 11.5 , -2.5 , 2.5 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 14.1 , 11.5 , 2.7 , 2.5 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 13.8 , 11.5 , 2.9 , 2.7 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 13.5 , 11.5 , 3.1 , 2.9 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 13.2 , 11.5 , 3.3 , 3.1 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12.9 , 11.5 , 3.5 , 3.3 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12.6 , 11.5 , 3.7 , 3.5 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12.3 , 11.5 , 3.9 , 3.7 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12 , 11.5 , 4.1 , 3.9 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 11.7 , 11.5 , 4.3 , 4.1 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+SYMETRIE																
+&OBST XB= 14.1 , 11.5 , -2.7 , -2.5 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 13.8 , 11.5 , -2.9 , -2.7 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 13.5 , 11.5 , -3.1 , -2.9 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 13.2 , 11.5 , -3.3 , -3.1 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12.9 , 11.5 , -3.5 , -3.3 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12.6 , 11.5 , -3.7 , -3.5 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12.3 , 11.5 , -3.9 , -3.7 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 12 , 11.5 , -4.1 , -3.9 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 11.7 , 11.5 , -4.3 , -4.1 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/
+&OBST XB= 23 , 55.6 , -6.1 , 6.1 , 6.1 , 6.8 , COLOR='GOLD' , TRANSPARENCY=1/ fin  placher: niveau intermédiaire - salle des billets
+
+&OBST XB= 0.0, 55.6, -6.1,6.1, 9.9, 10.6, COLOR='GOLD' , TRANSPARENCY=0.2/
+
+
+
+&OBST XB= -0.7 , 0.0 , -6.1 , 6.1 , -0.7 , 10.2 , OUTLINE=.TRUE./
+&OBST XB= 55.6 , 56.3 , -6.1 , 6.1 , -0.7 , 10.2 , OUTLINE=.TRUE./
+&OBST XB= -0.7 , 56.3 , -6.8 , -6.1 , -0.7 , 10.2 , OUTLINE=.TRUE./
+&OBST XB= -0.7 , 56.3 , 6.1 , 6.8 , -0.7 , 10.2 , OUTLINE=.TRUE./
+
+	-Locaux après escalier centrale 
+
+&OBST XB= 23 , 55.6 , -6.1 , 6.1 , 6.8 , 9.9 , COLOR='GOLD'/
+
+
+Niveau des quais:
+
+
+        -local de désenfumage droit +ascenseur:
+
+&OBST XB= 0.0 , 3.5 , 6.1 , 3.0 , 0.0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.5 , 6.4 , 3.6 , 3.8 , 0.0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/ debut ascenseur
+&OBST XB= 6.2 , 6.4 , 5.5 , 6.1 , 0.0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 6.2  , 6.4  , 3.6  , 4.2  , 0.0  , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+
+ -SYMETRIE
+
+&OBST XB= 0 , 3.5 , -3 , -6.1 , 0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.5 , 6.4 , -3.8 , -3.6 , 0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 6.2 , 6.4 , -6.1 , -5.5 , 0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 6.2 , 6.4 , -4.2 , -3.6 , 0 , 2.7 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+
+
+        -fin
+        
+	-facade quais
+
+
+&OBST XB=3.5 , 55.6 , 2 , 2.3 , 0.0 , 2.7 , COLOR='BRICK' , TRANSPARENCY=0.7/ 
+&OBST XB=3.5 , 3.7 , 3.0 , 2.3 , 0.0 , 2.7 , COLOR='BRICK' , TRANSPARENCY=0.3/
+
+ -SYMETIRE
+&OBST XB=3.5 , 55.6 , -2.3 , -2 , 0.0 , 2.7 , COLOR='BRICK' , TRANSPARENCY=0.7/
+&OBST XB=3.5 , 3.7 , -2.3 , -3.0 , 0.0 , 2.7 , COLOR='BRICK' , TRANSPARENCY=0.3/
+
+--------------- Géométrie tchou tchou-
+&OBST XB=5.1,30.1,1.8,2,-0.2,2.2 ,  COLOR = 'INVISIBLE'/ face quai
+&OBST XB=5.1,30.1,0,2,2,2.2, TRANSPARENCY=0.3, COLOR='GREEN' / plafond
+&OBST XB=5.1,5.3,0,2,-0.2,2.2 , TRANSPARENCY=0.3, COLOR='GREEN'/ avant
+&OBST XB=29.9,30.1,0,2,-0.2,2.2 , TRANSPARENCY=0.3, COLOR='GREEN'/ arrière
+&OBST XB=5.1,30.1,0,0.2,-0.2,2.2,TRANSPARENCY=0.3, COLOR='GREEN'/face milieu
+
+&HOLE XB=    6.6    ,    8.1    ,    1.8    ,    2.3    ,    0    ,    2    /
+&HOLE XB=    9.6    ,    11.1    ,    1.8    ,    2.3    ,    0    ,    2    /
+&HOLE XB=    12.6    ,    14.1    ,    1.8    ,    2.3   ,    0    ,    2    /
+&HOLE XB=    14.8    ,    16.3    ,    1.8    ,    2.3    ,    0    ,    2    /
+&HOLE XB=    17.8    ,    19.3    ,    1.8    ,    2.3    ,    0    ,    2    /
+&HOLE XB=    20.8    ,    22.3    ,    1.8    ,    2.3    ,    0    ,    2    /
+&HOLE XB=    23.8    ,    25.3    ,    1.8    ,    2.3    ,    0    ,    2    /
+&HOLE XB=    26    ,    27.5    ,    1.8    ,    2.3    ,    0    ,    2    /
+
+
+	-escalier 1.1
+&OBST XB= 14.4 , 13.6 , 4.4 , 6.1 , 0 , 0.2 , COLOR='GRAY'/	
+&OBST XB= 14 , 13.2 , 4.4 , 6.1 , 0 , 0.4 , COLOR='GRAY'/	
+&OBST XB= 13.6 , 12.8 , 4.4 , 6.1 , 0 , 0.6 , COLOR='GRAY'/	
+&OBST XB= 13.2 , 12.4 , 4.4 , 6.1 , 0 , 0.8 , COLOR='GRAY'/	
+&OBST XB= 12.8 , 12 , 4.4 , 6.1 , 0 , 1 , COLOR='GRAY'/	
+&OBST XB= 12.4 , 11.6 , 4.4 , 6.1 , 0 , 1.2 , COLOR='GRAY'/	
+&OBST XB= 12 , 11.2 , 4.4 , 6.1 , 0 , 1.4 , COLOR='GRAY'/	
+&OBST XB= 11.6 , 10.8 , 4.4 , 6.1 , 0 , 1.6 , COLOR='GRAY'/	
+&OBST XB= 11.2 , 10.4 , 4.4 , 6.1 , 0 , 1.8 , COLOR='GRAY'/	
+&OBST XB= 10.8 , 10 , 4.4 , 6.1 , 0 , 2 , COLOR='GRAY'/	
+&OBST XB= 10.4 , 9.6 , 4.4 , 6.1 , 0 , 2.2 , COLOR='GRAY'/	
+&OBST XB= 10 , 9.2 , 4.4 , 6.1 , 0 , 2.4 , COLOR='GRAY'/	
+&OBST XB= 9.6 , 8.8 , 4.4 , 6.1 , 0 , 2.6 , COLOR='GRAY'/	
+&OBST XB= 9.2 , 8.4 , 4.4 , 6.1 , 0 , 2.8 , COLOR='GRAY'/	
+&OBST XB= 8.8 , 8 , 4.4 , 6.1 , 0 , 3 , COLOR='GRAY'/	
+&OBST XB= 8.4 , 7.6 , 4.4 , 6.1 , 0 , 3.2 , COLOR='GRAY'/	
+&OBST XB= 8 , 7.6 , 4.4 , 6.1 , 3.2 , 3.4 , COLOR='GRAY'/														
+														
+														
+														
+														
+														
+&OBST XB= 14.4 , 14 , 4.4 , 4.6 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 14 , 13.6 , 4.4 , 4.6 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.6 , 13.2 , 4.4 , 4.6 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.2 , 12.8 , 4.4 , 4.6 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.8 , 12.4 , 4.4 , 4.6 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.4 , 12 , 4.4 , 4.6 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12 , 11.6 , 4.4 , 4.6 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.6 , 11.2 , 4.4 , 4.6 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.2 , 10.8 , 4.4 , 4.6 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.8 , 10.4 , 4.4 , 4.6 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.4 , 10 , 4.4 , 4.6 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10 , 9.6 , 4.4 , 4.6 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.6 , 9.2 , 4.4 , 4.6 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.2 , 8.8 , 4.4 , 4.6 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.8 , 8.4 , 4.4 , 4.6 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.4 , 8 , 4.4 , 4.6 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+&OBST XB= 7.6 , 8 , 4.4 , 4.6 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 7.6 , 8 , 5.9 , 6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+&OBST XB= 7.6 , 8 , -4.4 , -4.6 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 7.6 , 8 , -5.9 , -6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+														
+														
+					SYMETRIE									
+&OBST XB= 14.4 , 13.6 , -6.1 , -4.4 , 0 , 0.2 , COLOR='GRAY'/	
+&OBST XB= 14 , 13.2 , -6.1 , -4.4 , 0 , 0.4 , COLOR='GRAY'/	
+&OBST XB= 13.6 , 12.8 , -6.1 , -4.4 , 0 , 0.6 , COLOR='GRAY'/	
+&OBST XB= 13.2 , 12.4 , -6.1 , -4.4 , 0 , 0.8 , COLOR='GRAY'/	
+&OBST XB= 12.8 , 12 , -6.1 , -4.4 , 0 , 1 , COLOR='GRAY'/	
+&OBST XB= 12.4 , 11.6 , -6.1 , -4.4 , 0 , 1.2 , COLOR='GRAY'/	
+&OBST XB= 12 , 11.2 , -6.1 , -4.4 , 0 , 1.4 , COLOR='GRAY'/	
+&OBST XB= 11.6 , 10.8 , -6.1 , -4.4 , 0 , 1.6 , COLOR='GRAY'/	
+&OBST XB= 11.2 , 10.4 , -6.1 , -4.4 , 0 , 1.8 , COLOR='GRAY'/	
+&OBST XB= 10.8 , 10 , -6.1 , -4.4 , 0 , 2 , COLOR='GRAY'/	
+&OBST XB= 10.4 , 9.6 , -6.1 , -4.4 , 0 , 2.2 , COLOR='GRAY'/	
+&OBST XB= 10 , 9.2 , -6.1 , -4.4 , 0 , 2.4 , COLOR='GRAY'/	
+&OBST XB= 9.6 , 8.8 , -6.1 , -4.4 , 0 , 2.6 , COLOR='GRAY'/	
+&OBST XB= 9.2 , 8.4 , -6.1 , -4.4 , 0 , 2.8 , COLOR='GRAY'/	
+&OBST XB= 8.8 , 8 , -6.1 , -4.4 , 0 , 3 , COLOR='GRAY'/	
+&OBST XB= 8.4 , 7.6 , -6.1 , -4.4 , 0 , 3.2 , COLOR='GRAY'/	
+&OBST XB= 8 , 7.6 , -4.4 , -6.1 , 3.2 , 3.4 , COLOR='GRAY'/														
+														
+														
+														
+														
+														
+&OBST XB= 14.4 , 14 , -4.6 , -4.4 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 14 , 13.6 , -4.6 , -4.4 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.6 , 13.2 , -4.6 , -4.4 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.2 , 12.8 , -4.6 , -4.4 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.8 , 12.4 , -4.6 , -4.4 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.4 , 12 , -4.6 , -4.4 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12 , 11.6 , -4.6 , -4.4 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.6 , 11.2 , -4.6 , -4.4 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.2 , 10.8 , -4.6 , -4.4 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.8 , 10.4 , -4.6 , -4.4 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.4 , 10 , -4.6 , -4.4 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10 , 9.6 , -4.6 , -4.4 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.6 , 9.2 , -4.6 , -4.4 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.2 , 8.8 , -4.6 , -4.4 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.8 , 8.4 , -4.6 , -4.4 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.4 , 8 , -4.6 , -4.4 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+														
+&OBST XB= 14.4 , 14 , 5.9 , 6.1 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 14 , 13.6 , 5.9 , 6.1 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.6 , 13.2 , 5.9 , 6.1 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.2 , 12.8 , 5.9 , 6.1 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.8 , 12.4 , 5.9 , 6.1 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.4 , 12 , 5.9 , 6.1 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12 , 11.6 , 5.9 , 6.1 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.6 , 11.2 , 5.9 , 6.1 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.2 , 10.8 , 5.9 , 6.1 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.8 , 10.4 , 5.9 , 6.1 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.4 , 10 , 5.9 , 6.1 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10 , 9.6 , 5.9 , 6.1 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.6 , 9.2 , 5.9 , 6.1 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.2 , 8.8 , 5.9 , 6.1 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.8 , 8.4 , 5.9 , 6.1 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.4 , 8 , 5.9 , 6.1 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+&OBST XB= 14 , 13.6 , -6.1 , -5.9 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.6 , 13.2 , -6.1 , -5.9 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.2 , 12.8 , -6.1 , -5.9 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.8 , 12.4 , -6.1 , -5.9 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.4 , 12 , -6.1 , -5.9 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12 , 11.6 , -6.1 , -5.9 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.6 , 11.2 , -6.1 , -5.9 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.2 , 10.8 , -6.1 , -5.9 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.8 , 10.4 , -6.1 , -5.9 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.4 , 10 , -6.1 , -5.9 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10 , 9.6 , -6.1 , -5.9 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.6 , 9.2 , -6.1 , -5.9 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.2 , 8.8 , -6.1 , -5.9 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.8 , 8.4 , -6.1 , -5.9 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.4 , 8 , -6.1 , -5.9 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+&OBST XB= 14.4 , 14 , 4.6 , 4.4 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 14 , 13.6 , 4.6 , 4.4 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.6 , 13.2 , 4.6 , 4.4 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 13.2 , 12.8 , 4.6 , 4.4 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.8 , 12.4 , 4.6 , 4.4 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12.4 , 12 , 4.6 , 4.4 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 12 , 11.6 , 4.6 , 4.4 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.6 , 11.2 , 4.6 , 4.4 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 11.2 , 10.8 , 4.6 , 4.4 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.8 , 10.4 , 4.6 , 4.4 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10.4 , 10 , 4.6 , 4.4 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 10 , 9.6 , 4.6 , 4.4 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.6 , 9.2 , 4.6 , 4.4 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 9.2 , 8.8 , 4.6 , 4.4 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.8 , 8.4 , 4.6 , 4.4 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 8.4 , 8 , 4.6 , 4.4 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+	-fin
+
+
+
+
+
+	-escalator
+&OBST XB= 21.5 , 20.82 , 4.4 , 6.1 , 3.4 , 3.57 , COLOR='GRAY'/	
+&OBST XB= 21.16 , 20.48 , 4.4 , 6.1 , 3.57 , 3.74 , COLOR='GRAY'/	
+&OBST XB= 20.82 , 20.14 , 4.4 , 6.1 , 3.74 , 3.91 , COLOR='GRAY'/	
+&OBST XB= 20.48 , 19.8 , 4.4 , 6.1 , 3.91 , 4.08 , COLOR='GRAY'/	
+&OBST XB= 20.14 , 19.46 , 4.4 , 6.1 , 4.08 , 4.25 , COLOR='GRAY'/	
+&OBST XB= 19.8 , 19.12 , 4.4 , 6.1 , 4.25 , 4.42 , COLOR='GRAY'/	
+&OBST XB= 19.46 , 18.78 , 4.4 , 6.1 , 4.42 , 4.59 , COLOR='GRAY'/	
+&OBST XB= 19.12 , 18.44 , 4.4 , 6.1 , 4.59 , 4.76 , COLOR='GRAY'/	
+&OBST XB= 18.78 , 18.1 , 4.4 , 6.1 , 4.76 , 4.93 , COLOR='GRAY'/	
+&OBST XB= 18.44 , 17.76 , 4.4 , 6.1 , 4.93 , 5.1 , COLOR='GRAY'/	
+&OBST XB= 18.1 , 17.42 , 4.4 , 6.1 , 5.1 , 5.27 , COLOR='GRAY'/	
+&OBST XB= 17.76 , 17.08 , 4.4 , 6.1 , 5.27 , 5.44 , COLOR='GRAY'/	
+&OBST XB= 17.42 , 16.74 , 4.4 , 6.1 , 5.44 , 5.61 , COLOR='GRAY'/	
+&OBST XB= 17.08 , 16.4 , 4.4 , 6.1 , 5.61 , 5.78 , COLOR='GRAY'/	
+&OBST XB= 16.74 , 16.06 , 4.4 , 6.1 , 5.78 , 5.95 , COLOR='GRAY'/	
+&OBST XB= 16.4 , 15.72 , 4.4 , 6.1 , 5.95 , 6.12 , COLOR='GRAY'/	
+&OBST XB= 16.06 , 15.38 , 4.4 , 6.1 , 6.1 , 6.29 , COLOR='GRAY'/	
+&OBST XB= 15.72 , 15.04 , 4.4 , 6.1 , 6.1 , 6.46 , COLOR='GRAY'/	
+&OBST XB= 15.38 , 14.7 , 4.4 , 6.1 , 6.1 , 6.63 , COLOR='GRAY'/	
+&OBST XB= 15.04 , 14.36 , 4.4 , 6.1 , 6.1 , 6.8 , COLOR='GRAY'/	
+														
+														
+&OBST XB= 21.5 , 21.16 , 4.4 , 4.6 , 3.57 , 4.67 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.16 , 20.82 , 4.4 , 4.6 , 3.74 , 4.84 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.82 , 20.48 , 4.4 , 4.6 , 3.91 , 5.01 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.48 , 20.14 , 4.4 , 4.6 , 4.08 , 5.18 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.14 , 19.8 , 4.4 , 4.6 , 4.25 , 5.35 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.8 , 19.46 , 4.4 , 4.6 , 4.42 , 5.52 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.46 , 19.12 , 4.4 , 4.6 , 4.59 , 5.69 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.12 , 18.78 , 4.4 , 4.6 , 4.76 , 5.86 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.78 , 18.44 , 4.4 , 4.6 , 4.93 , 6.03 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.44 , 18.1 , 4.4 , 4.6 , 5.1 , 6.2 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.1 , 17.76 , 4.4 , 4.6 , 5.27 , 6.37 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.76 , 17.42 , 4.4 , 4.6 , 5.44 , 6.54 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.42 , 17.08 , 4.4 , 4.6 , 5.61 , 6.71 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.08 , 16.74 , 4.4 , 4.6 , 5.78 , 6.88 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.74 , 16.4 , 4.4 , 4.6 , 5.95 , 7.05 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.4 , 16.06 , 4.4 , 4.6 , 6.12 , 7.22 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.06 , 15.72 , 4.4 , 4.6 , 6.29 , 7.39 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.72 , 15.38 , 4.4 , 4.6 , 6.46 , 7.56 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.38 , 15.04 , 4.4 , 4.6 , 6.63 , 7.73 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.04 , 14.7 , 4.4 , 4.6 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+					SYMETRIE
+&OBST XB= 12.8 , 14.7 , -6.1 , -4.4 , 6.1 , 6.8 , COLOR='GRAY'/	
+&OBST XB= 12.8 , 14.7 , 6.1 , 4.4 , 6.1 , 6.8 ,COLOR='GRAY'/	
+&OBST XB= 12.8 , 14.7 , 4.6 , 4.4 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/	
+&OBST XB= 12.8 , 14.7 , 6.1 , 5.9 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/	
+&OBST XB= 12.8 , 14.7 , -4.6 , -4.4 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/	
+&OBST XB= 12.8 , 14.7 , -6.1 , -5.9 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/								
+&OBST XB= 21.5 , 20.82 , -6.1 , -4.4 , 3.4 , 3.57 , COLOR='GRAY'/	
+&OBST XB= 21.16 , 20.48 , -6.1 , -4.4 , 3.57 , 3.74 , COLOR='GRAY'/	
+&OBST XB= 20.82 , 20.14 , -6.1 , -4.4 , 3.74 , 3.91 , COLOR='GRAY'/	
+&OBST XB= 20.48 , 19.8 , -6.1 , -4.4 , 3.91 , 4.08 , COLOR='GRAY'/	
+&OBST XB= 20.14 , 19.46 , -6.1 , -4.4 , 4.08 , 4.25 , COLOR='GRAY'/	
+&OBST XB= 19.8 , 19.12 , -6.1 , -4.4 , 4.25 , 4.42 , COLOR='GRAY'/	
+&OBST XB= 19.46 , 18.78 , -6.1 , -4.4 , 4.42 , 4.59 , COLOR='GRAY'/	
+&OBST XB= 19.12 , 18.44 , -6.1 , -4.4 , 4.59 , 4.76 , COLOR='GRAY'/	
+&OBST XB= 18.78 , 18.1 , -6.1 , -4.4 , 4.76 , 4.93 , COLOR='GRAY'/	
+&OBST XB= 18.44 , 17.76 , -6.1 , -4.4 , 4.93 , 5.1 , COLOR='GRAY'/	
+&OBST XB= 18.1 , 17.42 , -6.1 , -4.4 , 5.1 , 5.27 , COLOR='GRAY'/	
+&OBST XB= 17.76 , 17.08 , -6.1 , -4.4 , 5.27 , 5.44 , COLOR='GRAY'/	
+&OBST XB= 17.42 , 16.74 , -6.1 , -4.4 , 5.44 , 5.61 , COLOR='GRAY'/	
+&OBST XB= 17.08 , 16.4 , -6.1 , -4.4 , 5.61 , 5.78 , COLOR='GRAY'/	
+&OBST XB= 16.74 , 16.06 , -6.1 , -4.4 , 5.78 , 5.95 , COLOR='GRAY'/	
+&OBST XB= 16.4 , 15.72 , -6.1 , -4.4 , 5.95 , 6.12 , COLOR='GRAY'/	
+&OBST XB= 16.06 , 15.38 , -6.1 , -4.4 , 6.1 , 6.29 , COLOR='GRAY'/	
+&OBST XB= 15.72 , 15.04 , -6.1 , -4.4 , 6.1 , 6.46 , COLOR='GRAY'/	
+&OBST XB= 15.38 , 14.7 , -6.1 , -4.4 , 6.1 , 6.63 , COLOR='GRAY'/	
+&OBST XB= 15.04 , 14.36 , -6.1 , -4.4 , 6.1 , 6.8 , COLOR='GRAY'/	
+														
+														
+&OBST XB= 21.5 , 21.16 , -4.6 , -4.4 , 3.57 , 4.67 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.16 , 20.82 , -4.6 , -4.4 , 3.74 , 4.84 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.82 , 20.48 , -4.6 , -4.4 , 3.91 , 5.01 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.48 , 20.14 , -4.6 , -4.4 , 4.08 , 5.18 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.14 , 19.8 , -4.6 , -4.4 , 4.25 , 5.35 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.8 , 19.46 , -4.6 , -4.4 , 4.42 , 5.52 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.46 , 19.12 , -4.6 , -4.4 , 4.59 , 5.69 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.12 , 18.78 , -4.6 , -4.4 , 4.76 , 5.86 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.78 , 18.44 , -4.6 , -4.4 , 4.93 , 6.03 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.44 , 18.1 , -4.6 , -4.4 , 5.1 , 6.2 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.1 , 17.76 , -4.6 , -4.4 , 5.27 , 6.37 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.76 , 17.42 , -4.6 , -4.4 , 5.44 , 6.54 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.42 , 17.08 , -4.6 , -4.4 , 5.61 , 6.71 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.08 , 16.74 , -4.6 , -4.4 , 5.78 , 6.88 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.74 , 16.4 , -4.6 , -4.4 , 5.95 , 7.05 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.4 , 16.06 , -4.6 , -4.4 , 6.12 , 7.22 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.06 , 15.72 , -4.6 , -4.4 , 6.29 , 7.39 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.72 , 15.38 , -4.6 , -4.4 , 6.46 , 7.56 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.38 , 15.04 , -4.6 , -4.4 , 6.63 , 7.73 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.04 , 14.7 , -4.6 , -4.4 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.5 , 21.16 , 5.9 , 6.1 , 3.57 , 4.67 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.16 , 20.82 , 5.9 , 6.1 , 3.74 , 4.84 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.82 , 20.48 , 5.9 , 6.1 , 3.91 , 5.01 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.48 , 20.14 , 5.9 , 6.1 , 4.08 , 5.18 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.14 , 19.8 , 5.9 , 6.1 , 4.25 , 5.35 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.8 , 19.46 , 5.9 , 6.1 , 4.42 , 5.52 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.46 , 19.12 , 5.9 , 6.1 , 4.59 , 5.69 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.12 , 18.78 , 5.9 , 6.1 , 4.76 , 5.86 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.78 , 18.44 , 5.9 , 6.1 , 4.93 , 6.03 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.44 , 18.1 , 5.9 , 6.1 , 5.1 , 6.2 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.1 , 17.76 , 5.9 , 6.1 , 5.27 , 6.37 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.76 , 17.42 , 5.9 , 6.1 , 5.44 , 6.54 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.42 , 17.08 , 5.9 , 6.1 , 5.61 , 6.71 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.08 , 16.74 , 5.9 , 6.1 , 5.78 , 6.88 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.74 , 16.4 , 5.9 , 6.1 , 5.95 , 7.05 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.4 , 16.06 , 5.9 , 6.1 , 6.12 , 7.22 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.06 , 15.72 , 5.9 , 6.1 , 6.29 , 7.39 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.72 , 15.38 , 5.9 , 6.1 , 6.46 , 7.56 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.38 , 15.04 , 5.9 , 6.1 , 6.63 , 7.73 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.04 , 14.7 , 5.9 , 6.1 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.5 , 21.16 , -6.1 , -5.9 , 3.57 , 4.67 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.16 , 20.82 , -6.1 , -5.9 , 3.74 , 4.84 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.82 , 20.48 , -6.1 , -5.9 , 3.91 , 5.01 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.48 , 20.14 , -6.1 , -5.9 , 4.08 , 5.18 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 20.14 , 19.8 , -6.1 , -5.9 , 4.25 , 5.35 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.8 , 19.46 , -6.1 , -5.9 , 4.42 , 5.52 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.46 , 19.12 , -6.1 , -5.9 , 4.59 , 5.69 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 19.12 , 18.78 , -6.1 , -5.9 , 4.76 , 5.86 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.78 , 18.44 , -6.1 , -5.9 , 4.93 , 6.03 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.44 , 18.1 , -6.1 , -5.9 , 5.1 , 6.2 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 18.1 , 17.76 , -6.1 , -5.9 , 5.27 , 6.37 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.76 , 17.42 , -6.1 , -5.9 , 5.44 , 6.54 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.42 , 17.08 , -6.1 , -5.9 , 5.61 , 6.71 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 17.08 , 16.74 , -6.1 , -5.9 , 5.78 , 6.88 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.74 , 16.4 , -6.1 , -5.9 , 5.95 , 7.05 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.4 , 16.06 , -6.1 , -5.9 , 6.12 , 7.22 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 16.06 , 15.72 , -6.1 , -5.9 , 6.29 , 7.39 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.72 , 15.38 , -6.1 , -5.9 , 6.46 , 7.56 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.38 , 15.04 , -6.1 , -5.9 , 6.63 , 7.73 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 15.04 , 14.7 , -6.1 , -5.9 , 6.8 , 7.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+&OBST XB= 28.3 , 30.6 , 6.1 , 4.4 , -0.4 , 0.0 ,COLOR='GRAY'/	
+&OBST XB= 28.3 , 27.62 , 4.4 , 6.1 , 0 , 0.17 , COLOR='GRAY'/	
+&OBST XB= 27.96 , 27.28 , 4.4 , 6.1 , 0.17 , 0.34 , COLOR='GRAY'/	
+&OBST XB= 27.62 , 26.94 , 4.4 , 6.1 , 0.34 , 0.51 , COLOR='GRAY'/	
+&OBST XB= 27.28 , 26.6 , 4.4 , 6.1 , 0.51 , 0.68 , COLOR='GRAY'/	
+&OBST XB= 26.94 , 26.26 , 4.4 , 6.1 , 0.68 , 0.85 , COLOR='GRAY'/	
+&OBST XB= 26.6 , 25.92 , 4.4 , 6.1 , 0.85 , 1.02 , COLOR='GRAY'/	
+&OBST XB= 26.26 , 25.58 , 4.4 , 6.1 , 1.02 , 1.19 , COLOR='GRAY'/	
+&OBST XB= 25.92 , 25.24 , 4.4 , 6.1 , 1.19 , 1.36 , COLOR='GRAY'/	
+&OBST XB= 25.58 , 24.9 , 4.4 , 6.1 , 1.36 , 1.53 , COLOR='GRAY'/	
+&OBST XB= 25.24 , 24.56 , 4.4 , 6.1 , 1.53 , 1.7 , COLOR='GRAY'/	
+&OBST XB= 24.9 , 24.22 , 4.4 , 6.1 , 1.7 , 1.87 , COLOR='GRAY'/	
+&OBST XB= 24.56 , 23.88 , 4.4 , 6.1 , 1.87 , 2.04 , COLOR='GRAY'/	
+&OBST XB= 24.22 , 23.54 , 4.4 , 6.1 , 2.04 , 2.21 , COLOR='GRAY'/	
+&OBST XB= 23.88 , 23.2 , 4.4 , 6.1 , 2.21 , 2.38 , COLOR='GRAY'/	
+&OBST XB= 23.54 , 22.86 , 4.4 , 6.1 , 2.38 , 2.55 , COLOR='GRAY'/	
+&OBST XB= 23.2 , 22.52 , 4.4 , 6.1 , 2.55 , 2.72 , COLOR='GRAY'/	
+&OBST XB= 22.86 , 22.18 , 4.4 , 6.1 , 2.70 , 2.89 , COLOR='GRAY'/	
+&OBST XB= 22.52 , 21.84 , 4.4 , 6.1 , 2.7 , 3.06 , COLOR='GRAY'/	
+&OBST XB= 22.18 , 21.5 , 4.4 , 6.1 , 2.7 , 3.23 , COLOR='GRAY'/	
+&OBST XB= 21.84 , 21.16 , 4.4 , 6.1 , 2.7 , 3.4 , COLOR='GRAY'/	
+														
+														
+&OBST XB= 28.3 , 27.96 , 4.4 , 4.6 , 0.17 , 1.27 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.96 , 27.62 , 4.4 , 4.6 , 0.34 , 1.44 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.62 , 27.28 , 4.4 , 4.6 , 0.51 , 1.61 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.28 , 26.94 , 4.4 , 4.6 , 0.68 , 1.78 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.94 , 26.6 , 4.4 , 4.6 , 0.85 , 1.95 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.6 , 26.26 , 4.4 , 4.6 , 1.02 , 2.12 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.26 , 25.92 , 4.4 , 4.6 , 1.19 , 2.29 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.92 , 25.58 , 4.4 , 4.6 , 1.36 , 2.46 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.58 , 25.24 , 4.4 , 4.6 , 1.53 , 2.63 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.24 , 24.9 , 4.4 , 4.6 , 1.7 , 2.8 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.9 , 24.56 , 4.4 , 4.6 , 1.87 , 2.97 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.56 , 24.22 , 4.4 , 4.6 , 2.04 , 3.14 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.22 , 23.88 , 4.4 , 4.6 , 2.21 , 3.31 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.88 , 23.54 , 4.4 , 4.6 , 2.38 , 3.48 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.54 , 23.2 , 4.4 , 4.6 , 2.55 , 3.65 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.2 , 22.86 , 4.4 , 4.6 , 2.72 , 3.82 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.86 , 22.52 , 4.4 , 4.6 , 2.89 , 3.99 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.52 , 22.18 , 4.4 , 4.6 , 3.06 , 4.16 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.18 , 21.84 , 4.4 , 4.6 , 3.23 , 4.33 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.84 , 21.5 , 4.4 , 4.6 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+					SYMETRIE
+&OBST XB= 28.3 , 30.6 , -6.1 , -4.4 , -0.4 , 0.0 , COLOR='GRAY'/										
+&OBST XB= 28.3 , 27.62 , -6.1 , -4.4 , 0 , 0.17 , COLOR='GRAY'/	
+&OBST XB= 27.96 , 27.28 , -6.1 , -4.4 , 0.17 , 0.34 , COLOR='GRAY'/	
+&OBST XB= 27.62 , 26.94 , -6.1 , -4.4 , 0.34 , 0.51 , COLOR='GRAY'/	
+&OBST XB= 27.28 , 26.6 , -6.1 , -4.4 , 0.51 , 0.68 , COLOR='GRAY'/	
+&OBST XB= 26.94 , 26.26 , -6.1 , -4.4 , 0.68 , 0.85 , COLOR='GRAY'/	
+&OBST XB= 26.6 , 25.92 , -6.1 , -4.4 , 0.85 , 1.02 , COLOR='GRAY'/	
+&OBST XB= 26.26 , 25.58 , -6.1 , -4.4 , 1.02 , 1.19 , COLOR='GRAY'/	
+&OBST XB= 25.92 , 25.24 , -6.1 , -4.4 , 1.19 , 1.36 , COLOR='GRAY'/	
+&OBST XB= 25.58 , 24.9 , -6.1 , -4.4 , 1.36 , 1.53 , COLOR='GRAY'/	
+&OBST XB= 25.24 , 24.56 , -6.1 , -4.4 , 1.53 , 1.7 , COLOR='GRAY'/	
+&OBST XB= 24.9 , 24.22 , -6.1 , -4.4 , 1.7 , 1.87 , COLOR='GRAY'/	
+&OBST XB= 24.56 , 23.88 , -6.1 , -4.4 , 1.87 , 2.04 , COLOR='GRAY'/	
+&OBST XB= 24.22 , 23.54 , -6.1 , -4.4 , 2.04 , 2.21 , COLOR='GRAY'/	
+&OBST XB= 23.88 , 23.2 , -6.1 , -4.4 , 2.21 , 2.38 , COLOR='GRAY'/	
+&OBST XB= 23.54 , 22.86 , -6.1 , -4.4 , 2.38 , 2.55 , COLOR='GRAY'/	
+&OBST XB= 23.2 , 22.52 , -6.1 , -4.4 , 2.55 , 2.72 , COLOR='GRAY'/	
+&OBST XB= 22.86 , 22.18 , -6.1 , -4.4 , 2.7 , 2.89 , COLOR='GRAY'/	
+&OBST XB= 22.52 , 21.84 , -6.1 , -4.4 , 2.7 , 3.06 , COLOR='GRAY'/	
+&OBST XB= 22.18 , 21.5 , -6.1 , -4.4 , 2.7 , 3.23 , COLOR='GRAY'/	
+&OBST XB= 21.84 , 21.16 , -6.1 , -4.4 , 2.7 , 3.4 , COLOR='GRAY'/	
+														
+													
+&OBST XB= 28.3 , 27.96 , -4.6 , -4.4 , 0.17 , 1.27 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.96 , 27.62 , -4.6 , -4.4 , 0.34 , 1.44 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.62 , 27.28 , -4.6 , -4.4 , 0.51 , 1.61 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.28 , 26.94 , -4.6 , -4.4 , 0.68 , 1.78 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.94 , 26.6 , -4.6 , -4.4 , 0.85 , 1.95 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.6 , 26.26 , -4.6 , -4.4 , 1.02 , 2.12 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.26 , 25.92 , -4.6 , -4.4 , 1.19 , 2.29 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.92 , 25.58 , -4.6 , -4.4 , 1.36 , 2.46 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.58 , 25.24 , -4.6 , -4.4 , 1.53 , 2.63 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.24 , 24.9 , -4.6 , -4.4 , 1.7 , 2.8 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.9 , 24.56 , -4.6 , -4.4 , 1.87 , 2.97 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.56 , 24.22 , -4.6 , -4.4 , 2.04 , 3.14 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.22 , 23.88 , -4.6 , -4.4 , 2.21 , 3.31 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.88 , 23.54 , -4.6 , -4.4 , 2.38 , 3.48 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.54 , 23.2 , -4.6 , -4.4 , 2.55 , 3.65 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.2 , 22.86 , -4.6 , -4.4 , 2.72 , 3.82 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.86 , 22.52 , -4.6 , -4.4 , 2.89 , 3.99 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.52 , 22.18 , -4.6 , -4.4 , 3.06 , 4.16 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.18 , 21.84 , -4.6 , -4.4 , 3.23 , 4.33 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.84 , 21.5 , -4.6 , -4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+&OBST XB= 28.3 , 27.96 , 5.9 , 6.1 , 0.17 , 1.27 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.96 , 27.62 , 5.9 , 6.1 , 0.34 , 1.44 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.62 , 27.28 , 5.9 , 6.1 , 0.51 , 1.61 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.28 , 26.94 , 5.9 , 6.1 , 0.68 , 1.78 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.94 , 26.6 , 5.9 , 6.1 , 0.85 , 1.95 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.6 , 26.26 , 5.9 , 6.1 , 1.02 , 2.12 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.26 , 25.92 , 5.9 , 6.1 , 1.19 , 2.29 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.92 , 25.58 , 5.9 , 6.1 , 1.36 , 2.46 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.58 , 25.24 , 5.9 , 6.1 , 1.53 , 2.63 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.24 , 24.9 , 5.9 , 6.1 , 1.7 , 2.8 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.9 , 24.56 , 5.9 , 6.1 , 1.87 , 2.97 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.56 , 24.22 , 5.9 , 6.1 , 2.04 , 3.14 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.22 , 23.88 , 5.9 , 6.1 , 2.21 , 3.31 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.88 , 23.54 , 5.9 , 6.1 , 2.38 , 3.48 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.54 , 23.2 , 5.9 , 6.1 , 2.55 , 3.65 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.2 , 22.86 , 5.9 , 6.1 , 2.72 , 3.82 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.86 , 22.52 , 5.9 , 6.1 , 2.89 , 3.99 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.52 , 22.18 , 5.9 , 6.1 , 3.06 , 4.16 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.18 , 21.84 , 5.9 , 6.1 , 3.23 , 4.33 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.84 , 21.5 , 5.9 , 6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 28.3 , 27.96 , -6.1 , -5.9 , 0.17 , 1.27 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.96 , 27.62 , -6.1 , -5.9 , 0.34 , 1.44 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.62 , 27.28 , -6.1 , -5.9 , 0.51 , 1.61 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 27.28 , 26.94 , -6.1 , -5.9 , 0.68 , 1.78 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.94 , 26.6 , -6.1 , -5.9 , 0.85 , 1.95 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.6 , 26.26 , -6.1 , -5.9 , 1.02 , 2.12 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 26.26 , 25.92 , -6.1 , -5.9 , 1.19 , 2.29 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.92 , 25.58 , -6.1 , -5.9 , 1.36 , 2.46 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.58 , 25.24 , -6.1 , -5.9 , 1.53 , 2.63 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 25.24 , 24.9 , -6.1 , -5.9 , 1.7 , 2.8 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.9 , 24.56 , -6.1 , -5.9 , 1.87 , 2.97 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.56 , 24.22 , -6.1 , -5.9 , 2.04 , 3.14 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 24.22 , 23.88 , -6.1 , -5.9 , 2.21 , 3.31 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.88 , 23.54 , -6.1 , -5.9 , 2.38 , 3.48 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.54 , 23.2 , -6.1 , -5.9 , 2.55 , 3.65 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 23.2 , 22.86 , -6.1 , -5.9 , 2.72 , 3.82 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.86 , 22.52 , -6.1 , -5.9 , 2.89 , 3.99 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.52 , 22.18 , -6.1 , -5.9 , 3.06 , 4.16 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 22.18 , 21.84 , -6.1 , -5.9 , 3.23 , 4.33 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 21.84 , 21.5 , -6.1 , -5.9 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+&OBST XB= 28.3 , 30.5 , -6.1 , -5.9 , 0 , 1.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 28.3 , 30.5 , -4.6 , -4.4 , 0 , 1.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 28.3 , 30.5 , 6.1 , 5.9 , 0 , 1.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 28.3 , 30.5 , 4.6 , 4.4 , 0 , 1.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+
+
+	-escalier 2.1
+&OBST XB= 41.3 , 40.5 , 4.4 , 6.1 , 0 , 0.2 , COLOR='GRAY'/	
+&OBST XB= 40.9 , 40.1 , 4.4 , 6.1 , 0 , 0.4 , COLOR='GRAY'/	
+&OBST XB= 40.5 , 39.7 , 4.4 , 6.1 , 0 , 0.6 , COLOR='GRAY'/	
+&OBST XB= 40.1 , 39.3 , 4.4 , 6.1 , 0 , 0.8 , COLOR='GRAY'/	
+&OBST XB= 39.7 , 38.9 , 4.4 , 6.1 , 0 , 1 , COLOR='GRAY'/	
+&OBST XB= 39.3 , 38.5 , 4.4 , 6.1 , 0 , 1.2 , COLOR='GRAY'/	
+&OBST XB= 38.9 , 38.1 , 4.4 , 6.1 , 0 , 1.4 , COLOR='GRAY'/	
+&OBST XB= 38.5 , 37.7 , 4.4 , 6.1 , 0 , 1.6 , COLOR='GRAY'/	
+&OBST XB= 38.1 , 37.3 , 4.4 , 6.1 , 0 , 1.8 , COLOR='GRAY'/	
+&OBST XB= 37.7 , 36.9 , 4.4 , 6.1 , 0 , 2 , COLOR='GRAY'/	
+&OBST XB= 37.3 , 36.5 , 4.4 , 6.1 , 0 , 2.2 , COLOR='GRAY'/	
+&OBST XB= 36.9 , 36.1 , 4.4 , 6.1 , 0 , 2.4 , COLOR='GRAY'/	
+&OBST XB= 36.5 , 35.7 , 4.4 , 6.1 , 0 , 2.6 , COLOR='GRAY'/	
+&OBST XB= 36.1 , 35.3 , 4.4 , 6.1 , 0 , 2.8 , COLOR='GRAY'/	
+&OBST XB= 35.7 , 34.9 , 4.4 , 6.1 , 0 , 3 , COLOR='GRAY'/	
+&OBST XB= 35.3 , 34.5 , 4.4 , 6.1 , 0 , 3.2 , COLOR='GRAY'/	
+&OBST XB= 34.9 , 34.5 , 4.4 , 6.1 , 3.2 , 3.4 , COLOR='GRAY'/														
+														
+														
+														
+														
+														
+&OBST XB= 41.3 , 40.9 , 4.4 , 4.6 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.9 , 40.5 , 4.4 , 4.6 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.5 , 40.1 , 4.4 , 4.6 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.1 , 39.7 , 4.4 , 4.6 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.7 , 39.3 , 4.4 , 4.6 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.3 , 38.9 , 4.4 , 4.6 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.9 , 38.5 , 4.4 , 4.6 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.5 , 38.1 , 4.4 , 4.6 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.1 , 37.7 , 4.4 , 4.6 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.7 , 37.3 , 4.4 , 4.6 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.3 , 36.9 , 4.4 , 4.6 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.9 , 36.5 , 4.4 , 4.6 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.5 , 36.1 , 4.4 , 4.6 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.1 , 35.7 , 4.4 , 4.6 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.7 , 35.3 , 4.4 , 4.6 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.3 , 34.9 , 4.4 , 4.6 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+&OBST XB= 34.5 , 34.9 , 4.4 , 4.6 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+&OBST XB= 34.5 , 34.9 , 5.9 , 6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/															
+&OBST XB= 34.5 , 34.9 , -4.4 , -4.6 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+&OBST XB= 34.5 , 34.9 , -5.9 , -6.1 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+														
+					SYMETRIE									
+&OBST XB= 41.3 , 40.5 , -6.1 , -4.4 , 0 , 0.2 , COLOR='GRAY'/	
+&OBST XB= 40.9 , 40.1 , -6.1 , -4.4 , 0 , 0.4 , COLOR='GRAY'/	
+&OBST XB= 40.5 , 39.7 , -6.1 , -4.4 , 0 , 0.6 , COLOR='GRAY'/	
+&OBST XB= 40.1 , 39.3 , -6.1 , -4.4 , 0 , 0.8 , COLOR='GRAY'/	
+&OBST XB= 39.7 , 38.9 , -6.1 , -4.4 , 0 , 1 , COLOR='GRAY'/	
+&OBST XB= 39.3 , 38.5 , -6.1 , -4.4 , 0 , 1.2 , COLOR='GRAY'/	
+&OBST XB= 38.9 , 38.1 , -6.1 , -4.4 , 0 , 1.4 , COLOR='GRAY'/	
+&OBST XB= 38.5 , 37.7 , -6.1 , -4.4 , 0 , 1.6 , COLOR='GRAY'/	
+&OBST XB= 38.1 , 37.3 , -6.1 , -4.4 , 0 , 1.8 , COLOR='GRAY'/	
+&OBST XB= 37.7 , 36.9 , -6.1 , -4.4 , 0 , 2 , COLOR='GRAY'/	
+&OBST XB= 37.3 , 36.5 , -6.1 , -4.4 , 0 , 2.2 , COLOR='GRAY'/	
+&OBST XB= 36.9 , 36.1 , -6.1 , -4.4 , 0 , 2.4 , COLOR='GRAY'/	
+&OBST XB= 36.5 , 35.7 , -6.1 , -4.4 , 0 , 2.6 , COLOR='GRAY'/	
+&OBST XB= 36.1 , 35.3 , -6.1 , -4.4 , 0 , 2.8 , COLOR='GRAY'/	
+&OBST XB= 35.7 , 34.9 , -6.1 , -4.4 , 0 , 3 , COLOR='GRAY'/	
+&OBST XB= 35.3 , 34.5 , -6.1 , -4.4 , 0 , 3.2 , COLOR='GRAY'/	
+&OBST XB= 34.9 , 34.5 , -4.4 , -6.1 , 3.2 , 3.4 , COLOR='GRAY'/														
+														
+														
+														
+														
+														
+&OBST XB= 41.3 , 40.9 , -4.6 , -4.4 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.9 , 40.5 , -4.6 , -4.4 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.5 , 40.1 , -4.6 , -4.4 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.1 , 39.7 , -4.6 , -4.4 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.7 , 39.3 , -4.6 , -4.4 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.3 , 38.9 , -4.6 , -4.4 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.9 , 38.5 , -4.6 , -4.4 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.5 , 38.1 , -4.6 , -4.4 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.1 , 37.7 , -4.6 , -4.4 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.7 , 37.3 , -4.6 , -4.4 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.3 , 36.9 , -4.6 , -4.4 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.9 , 36.5 , -4.6 , -4.4 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.5 , 36.1 , -4.6 , -4.4 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.1 , 35.7 , -4.6 , -4.4 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.7 , 35.3 , -4.6 , -4.4 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.3 , 34.9 , -4.6 , -4.4 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+														
+&OBST XB= 41.3 , 40.9 , 5.9 , 6.1 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.9 , 40.5 , 5.9 , 6.1 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.5 , 40.1 , 5.9 , 6.1 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.1 , 39.7 , 5.9 , 6.1 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.7 , 39.3 , 5.9 , 6.1 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.3 , 38.9 , 5.9 , 6.1 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.9 , 38.5 , 5.9 , 6.1 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.5 , 38.1 , 5.9 , 6.1 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.1 , 37.7 , 5.9 , 6.1 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.7 , 37.3 , 5.9 , 6.1 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.3 , 36.9 , 5.9 , 6.1 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.9 , 36.5 , 5.9 , 6.1 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.5 , 36.1 , 5.9 , 6.1 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.1 , 35.7 , 5.9 , 6.1 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.7 , 35.3 , 5.9 , 6.1 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.3 , 34.9 , 5.9 , 6.1 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+&OBST XB= 40.9 , 40.5 , -6.1 , -5.9 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.5 , 40.1 , -6.1 , -5.9 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.1 , 39.7 , -6.1 , -5.9 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.7 , 39.3 , -6.1 , -5.9 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.3 , 38.9 , -6.1 , -5.9 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.9 , 38.5 , -6.1 , -5.9 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.5 , 38.1 , -6.1 , -5.9 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.1 , 37.7 , -6.1 , -5.9 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.7 , 37.3 , -6.1 , -5.9 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.3 , 36.9 , -6.1 , -5.9 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.9 , 36.5 , -6.1 , -5.9 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.5 , 36.1 , -6.1 , -5.9 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.1 , 35.7 , -6.1 , -5.9 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.7 , 35.3 , -6.1 , -5.9 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.3 , 34.9 , -6.1 , -5.9 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+&OBST XB= 41.3 , 40.9 , 4.6 , 4.4 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.9 , 40.5 , 4.6 , 4.4 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.5 , 40.1 , 4.6 , 4.4 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 40.1 , 39.7 , 4.6 , 4.4 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.7 , 39.3 , 4.6 , 4.4 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 39.3 , 38.9 , 4.6 , 4.4 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.9 , 38.5 , 4.6 , 4.4 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.5 , 38.1 , 4.6 , 4.4 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 38.1 , 37.7 , 4.6 , 4.4 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.7 , 37.3 , 4.6 , 4.4 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 37.3 , 36.9 , 4.6 , 4.4 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.9 , 36.5 , 4.6 , 4.4 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.5 , 36.1 , 4.6 , 4.4 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 36.1 , 35.7 , 4.6 , 4.4 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.7 , 35.3 , 4.6 , 4.4 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 35.3 , 34.9 , 4.6 , 4.4 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+
+
+
+ -local (pas symétrique)
+&OBST XB= 32 , 35 , -6.1 , -4.4 , 0 , 2.7 , COLOR='GRAY'/
+
+	-fin
+
+	-escalier 3.1
+&OBST XB= 50.6 , 49.8 , 4.4 , 6.1 , 0 , 0.2 , COLOR='GRAY'/	
+&OBST XB= 50.2 , 49.4 , 4.4 , 6.1 , 0 , 0.4 , COLOR='GRAY'/	
+&OBST XB= 49.8 , 49 , 4.4 , 6.1 , 0 , 0.6 , COLOR='GRAY'/	
+&OBST XB= 49.4 , 48.6 , 4.4 , 6.1 , 0 , 0.8 , COLOR='GRAY'/	
+&OBST XB= 49 , 48.2 , 4.4 , 6.1 , 0 , 1 , COLOR='GRAY'/	
+&OBST XB= 48.6 , 47.8 , 4.4 , 6.1 , 0 , 1.2 , COLOR='GRAY'/	
+&OBST XB= 48.2 , 47.4 , 4.4 , 6.1 , 0 , 1.4 , COLOR='GRAY'/	
+&OBST XB= 47.8 , 47 , 4.4 , 6.1 , 0 , 1.6 , COLOR='GRAY'/	
+&OBST XB= 47.4 , 46.6 , 4.4 , 6.1 , 0 , 1.8 , COLOR='GRAY'/	
+&OBST XB= 47 , 46.2 , 4.4 , 6.1 , 0 , 2 , COLOR='GRAY'/	
+&OBST XB= 46.6 , 45.8 , 4.4 , 6.1 , 0 , 2.2 , COLOR='GRAY'/	
+&OBST XB= 46.2 , 45.4 , 4.4 , 6.1 , 0 , 2.4 , COLOR='GRAY'/	
+&OBST XB= 45.8 , 45 , 4.4 , 6.1 , 0 , 2.6 , COLOR='GRAY'/	
+&OBST XB= 45.4 , 44.6 , 4.4 , 6.1 , 0 , 2.8 , COLOR='GRAY'/	
+&OBST XB= 45 , 44.2 , 4.4 , 6.1 , 0 , 3 , COLOR='GRAY'/	
+&OBST XB= 44.6 , 43.8 , 4.4 , 6.1 , 0 , 3.2 , COLOR='GRAY'/	
+&OBST XB= 44.2 , 43.8 , 4.4 , 6.1 , 3.4 , 3.2 , COLOR='GRAY'/														
+														
+														
+														
+														
+														
+&OBST XB= 50.6 , 50.2 , 4.4 , 4.6 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 50.2 , 49.8 , 4.4 , 4.6 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.8 , 49.4 , 4.4 , 4.6 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.4 , 49 , 4.4 , 4.6 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49 , 48.6 , 4.4 , 4.6 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.6 , 48.2 , 4.4 , 4.6 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.2 , 47.8 , 4.4 , 4.6 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.8 , 47.4 , 4.4 , 4.6 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.4 , 47 , 4.4 , 4.6 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47 , 46.6 , 4.4 , 4.6 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.6 , 46.2 , 4.4 , 4.6 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.2 , 45.8 , 4.4 , 4.6 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.8 , 45.4 , 4.4 , 4.6 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.4 , 45 , 4.4 , 4.6 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45 , 44.6 , 4.4 , 4.6 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 44.6 , 44.2 , 4.4 , 4.6 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+					SYMETRIE									
+&OBST XB= 50.6 , 49.8 , -6.1 , -4.4 , 0 , 0.2 , COLOR='GRAY'/	
+&OBST XB= 50.2 , 49.4 , -6.1 , -4.4 , 0 , 0.4 , COLOR='GRAY'/	
+&OBST XB= 49.8 , 49 , -6.1 , -4.4 , 0 , 0.6 , COLOR='GRAY'/	
+&OBST XB= 49.4 , 48.6 , -6.1 , -4.4 , 0 , 0.8 , COLOR='GRAY'/	
+&OBST XB= 49 , 48.2 , -6.1 , -4.4 , 0 , 1 , COLOR='GRAY'/	
+&OBST XB= 48.6 , 47.8 , -6.1 , -4.4 , 0 , 1.2 , COLOR='GRAY'/	
+&OBST XB= 48.2 , 47.4 , -6.1 , -4.4 , 0 , 1.4 , COLOR='GRAY'/	
+&OBST XB= 47.8 , 47 , -6.1 , -4.4 , 0 , 1.6 , COLOR='GRAY'/	
+&OBST XB= 47.4 , 46.6 , -6.1 , -4.4 , 0 , 1.8 , COLOR='GRAY'/	
+&OBST XB= 47 , 46.2 , -6.1 , -4.4 , 0 , 2 , COLOR='GRAY'/	
+&OBST XB= 46.6 , 45.8 , -6.1 , -4.4 , 0 , 2.2 , COLOR='GRAY'/	
+&OBST XB= 46.2 , 45.4 , -6.1 , -4.4 , 0 , 2.4 , COLOR='GRAY'/	
+&OBST XB= 45.8 , 45 , -6.1 , -4.4 , 0 , 2.6 , COLOR='GRAY'/	
+&OBST XB= 45.4 , 44.6 , -6.1 , -4.4 , 0 , 2.8 , COLOR='GRAY'/	
+&OBST XB= 45 , 44.2 , -6.1 , -4.4 , 0 , 3 , COLOR='GRAY'/	
+&OBST XB= 44.6 , 43.8 , -6.1 , -4.4 , 0 , 3.2 , COLOR='GRAY'/	
+&OBST XB= 44.2 , 43.8 , -4.4 , -6.1 , 3.4 , 3.2 , COLOR='GRAY'/														
+														
+														
+														
+														
+														
+&OBST XB= 50.6 , 50.2 , -4.6 , -4.4 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 50.2 , 49.8 , -4.6 , -4.4 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.8 , 49.4 , -4.6 , -4.4 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.4 , 49 , -4.6 , -4.4 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49 , 48.6 , -4.6 , -4.4 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.6 , 48.2 , -4.6 , -4.4 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.2 , 47.8 , -4.6 , -4.4 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.8 , 47.4 , -4.6 , -4.4 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.4 , 47 , -4.6 , -4.4 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47 , 46.6 , -4.6 , -4.4 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.6 , 46.2 , -4.6 , -4.4 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.2 , 45.8 , -4.6 , -4.4 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.8 , 45.4 , -4.6 , -4.4 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.4 , 45 , -4.6 , -4.4 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45 , 44.6 , -4.6 , -4.4 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 44.6 , 44.2 , -4.6 , -4.4 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+&OBST XB= 43.8 , 44.2 , -4.6 , -4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+&OBST XB= 43.8 , 44.2 , -6.1 , -5.9 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+&OBST XB= 43.8 , 44.2 , 4.6 , 4.4 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+&OBST XB= 43.8 , 44.2 , 6.1 , 5.9 , 3.4 , 4.5 , TRANSPARENCY=0.3,COLOR='GRAY'/														
+														
+														
+														
+&OBST XB= 50.6 , 50.2 , 5.9 , 6.1 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 50.2 , 49.8 , 5.9 , 6.1 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.8 , 49.4 , 5.9 , 6.1 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.4 , 49 , 5.9 , 6.1 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49 , 48.6 , 5.9 , 6.1 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.6 , 48.2 , 5.9 , 6.1 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.2 , 47.8 , 5.9 , 6.1 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.8 , 47.4 , 5.9 , 6.1 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.4 , 47 , 5.9 , 6.1 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47 , 46.6 , 5.9 , 6.1 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.6 , 46.2 , 5.9 , 6.1 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.2 , 45.8 , 5.9 , 6.1 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.8 , 45.4 , 5.9 , 6.1 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.4 , 45 , 5.9 , 6.1 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45 , 44.6 , 5.9 , 6.1 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 44.6 , 44.2 , 5.9 , 6.1 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+														
+														
+														
+														
+														
+&OBST XB= 50.2 , 49.8 , -6.1 , -5.9 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.8 , 49.4 , -6.1 , -5.9 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.4 , 49 , -6.1 , -5.9 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49 , 48.6 , -6.1 , -5.9 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.6 , 48.2 , -6.1 , -5.9 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.2 , 47.8 , -6.1 , -5.9 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.8 , 47.4 , -6.1 , -5.9 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.4 , 47 , -6.1 , -5.9 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47 , 46.6 , -6.1 , -5.9 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.6 , 46.2 , -6.1 , -5.9 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.2 , 45.8 , -6.1 , -5.9 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.8 , 45.4 , -6.1 , -5.9 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.4 , 45 , -6.1 , -5.9 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45 , 44.6 , -6.1 , -5.9 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 44.6 , 44.2 , -6.1 , -5.9 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+																											
+&OBST XB= 50.6 , 50.2 , 4.6 , 4.4 , 0.2 , 1.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 50.2 , 49.8 , 4.6 , 4.4 , 0.4 , 1.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.8 , 49.4 , 4.6 , 4.4 , 0.6 , 1.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49.4 , 49 , 4.6 , 4.4 , 0.8 , 1.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 49 , 48.6 , 4.6 , 4.4 , 1 , 2.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.6 , 48.2 , 4.6 , 4.4 , 1.2 , 2.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 48.2 , 47.8 , 4.6 , 4.4 , 1.4 , 2.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.8 , 47.4 , 4.6 , 4.4 , 1.6 , 2.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47.4 , 47 , 4.6 , 4.4 , 1.8 , 2.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 47 , 46.6 , 4.6 , 4.4 , 2 , 3.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.6 , 46.2 , 4.6 , 4.4 , 2.2 , 3.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 46.2 , 45.8 , 4.6 , 4.4 , 2.4 , 3.5 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.8 , 45.4 , 4.6 , 4.4 , 2.6 , 3.7 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45.4 , 45 , 4.6 , 4.4 , 2.8 , 3.9 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 45 , 44.6 , 4.6 , 4.4 , 3 , 4.1 , TRANSPARENCY=0.3,COLOR='GRAY'/
+&OBST XB= 44.6 , 44.2 , 4.6 , 4.4 , 3.2 , 4.3 , TRANSPARENCY=0.3,COLOR='GRAY'/
+
+
+
+	-fin
+
+
+	-NIVEAU INTERMEDIARE
+	
+
+	-Ascenseurs + petits locaux
+
+&OBST XB= 3.5 , 6.4 , 3.6 , 3.8 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/ ascenseur
+&OBST XB= 6.2 , 6.4 , 5.5 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 6.2  , 6.4  , 3.6  , 4.2  , 3.4  , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.3  , 3.5  , 3.6  , 6.1  , 3.4  , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/ ascenseur
+&OBST XB= 3.1 , 3.3 , 3.8 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.9 , 3.1 , 4 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.7 , 2.9 , 4.2 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.5 , 2.7 , 4.4 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.3 , 2.5 , 4.6 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.1 , 2.3 , 4.8 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 2.3 , 4.7 , 6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+
+	-SYMETRIE
+&OBST XB= 3.5 , 6.4 , -3.6 , -3.8 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/ ascenseur
+&OBST XB= 6.2 , 6.4 , -5.5 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 6.2  , 6.4  , -3.6  , -4.2  , 3.4  , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.3  , 3.5  , -3.6  , -6.1  , 3.4  , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/ ascenseur
+&OBST XB= 3.3  , 3.5  , -3.6  , -6.1  , 3.4  , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.1 , 3.3 , -3.8 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.9 , 3.1 , -4 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.7 , 2.9 , -4.2 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.5 , 2.7 , -4.4 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.3 , 2.5 , -4.6 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.1 , 2.3 , -4.8 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.9 , 2.1 , -5 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.7 , 1.9 , -5.2 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.5 , 1.7 , -5.4 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.3 , 1.5 , -5.6 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.1 , 1.3 , -5.8 , -6.1 , 3.4 , 6.1 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+
+
+ - locaux Désenfumage
+
+&OBST XB= 50.6  , 46.4  , -4.4  , 4.4  , 3.4  , 6.1 ,  COLOR='GOLD'/
+&OBST XB= 50.6  , 55.6  , -6.1  , 6.1  , 3.4  , 6.1 ,  COLOR='GOLD'/
+
+
+ESCALIER CENTRAL       	
+&HOLE ID='tremie grand escalier' XB= 21.50 , 14.48 , -2.45 , 2.45 , 6.10 , 6.83 , /	
+Marches       	
+Marches       	
+&OBST   XB= 21.5 , 20.7 , -2.5 , 2.5 , 3.6 , 3.4 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 21.1 , 20.3 , -2.5 , 2.5 , 3.7 , 3.5 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 20.7 , 19.9 , -2.5 , 2.5 , 3.9 , 3.7 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 20.3 , 19.6 , -2.5 , 2.5 , 4.1 , 3.9 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 19.9 , 19.2 , -2.5 , 2.5 , 4.3 , 4.1 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 19.6 , 18.8 , -2.5 , 2.5 , 4.5 , 4.3 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 19.2 , 18.4 , -2.5 , 2.5 , 4.7 , 4.5 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 18.8 , 18.0 , -2.5 , 2.5 , 4.9 , 4.7 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 18.4 , 17.6 , -2.5 , 2.5 , 5.1 , 4.9 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 18.0 , 17.2 , -2.5 , 2.5 , 5.3 , 5.1 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 17.6 , 16.8 , -2.5 , 2.5 , 5.5 , 5.3 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 17.2 , 16.4 , -2.5 , 2.5 , 5.7 , 5.5 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 16.8 , 16.0 , -2.5 , 2.5 , 5.9 , 5.7 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 16.4 , 15.7 , -2.5 , 2.5 , 6.1 , 5.9 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 16.0 , 15.3 , -2.5 , 2.5 , 6.2 , 6.1 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 15.7 , 14.9 , -2.5 , 2.5 , 6.4 , 6.2 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 15.3 , 14.5 , -2.5 , 2.5 , 6.6 , 6.4 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+&OBST   XB= 14.9 , 14.1 , -2.5 , 2.5 , 6.8 , 6.6 ,  PERMIT_HOLE=.FALSE. , COLOR='GRAY'/	
+
+&OBST XB= 21.1 , 20.7 , 2.3 , 2.5 , 3.6 , 3.4 , COLOR='GRAY'/ mur sous l'escalier
+&OBST XB= 20.7 , 20.3 , 2.3 , 2.5 , 3.8 , 3.4 , COLOR='GRAY'/
+&OBST XB= 20.3 , 19.9 , 2.3 , 2.5 , 4 , 3.4 , COLOR='GRAY'/
+&OBST XB= 19.9 , 19.5 , 2.3 , 2.5 , 4.2 , 3.4 , COLOR='GRAY'/
+&OBST XB= 19.5 , 19.1 , 2.3 , 2.5 , 4.4 , 3.4 , COLOR='GRAY'/
+&OBST XB= 19.1 , 18.7 , 2.3 , 2.5 , 4.6 , 3.4 , COLOR='GRAY'/
+&OBST XB= 18.7 , 18.3 , 2.3 , 2.5 , 4.8 , 3.4 , COLOR='GRAY'/
+&OBST XB= 18.3 , 17.9 , 2.3 , 2.5 , 5 , 3.4 , COLOR='GRAY'/
+&OBST XB= 17.9 , 17.5 , 2.1 , 2.3 , 5.2 , 3.4 , COLOR='GRAY'/
+&OBST XB= 17.5 , 17.1 , 1.9 , 2.1 , 5.4 , 3.4 , COLOR='GRAY'/
+&OBST XB= 17.1 , 16.7 , 1.7 , 1.9 , 5.6 , 3.4 , COLOR='GRAY'/
+&OBST XB= 16.7 , 16.3 , 1.5 , 1.7 , 5.8 , 3.4 , COLOR='GRAY'/
+&OBST XB= 16.3 , 16.1 , 0 , 1.5 , 6 , 3.4 , COLOR='GRAY'/
+&OBST XB= 21.1 , 20.7 , -2.3 , -2.5 , 3.6 , 3.4 , COLOR='GRAY'/
+&OBST XB= 20.7 , 20.3 , -2.3 , -2.5 , 3.8 , 3.4 , COLOR='GRAY'/
+&OBST XB= 20.3 , 19.9 , -2.3 , -2.5 , 4 , 3.4 , COLOR='GRAY'/
+&OBST XB= 19.9 , 19.5 , -2.3 , -2.5 , 4.2 , 3.4 , COLOR='GRAY'/
+&OBST XB= 19.5 , 19.1 , -2.3 , -2.5 , 4.4 , 3.4 , COLOR='GRAY'/
+&OBST XB= 19.1 , 18.7 , -2.3 , -2.5 , 4.6 , 3.4 , COLOR='GRAY'/
+&OBST XB= 18.7 , 18.3 , -2.3 , -2.5 , 4.8 , 3.4 , COLOR='GRAY'/
+&OBST XB= 18.3 , 17.9 , -2.3 , -2.5 , 5 , 3.4 , COLOR='GRAY'/
+&OBST XB= 17.9 , 17.5 , -2.1 , -2.3 , 5.2 , 3.4 , COLOR='GRAY'/
+&OBST XB= 17.5 , 17.1 , -1.9 , -2.1 , 5.4 , 3.4 , COLOR='GRAY'/
+&OBST XB= 17.1 , 16.7 , -1.7 , -1.9 , 5.6 , 3.4 , COLOR='GRAY'/
+&OBST XB= 16.7 , 16.3 , -1.5 , -1.7 , 5.8 , 3.4 , COLOR='GRAY'/
+&OBST XB= 16.3 , 16.1 , 0 , -1.5 , 6 , 3.4 , COLOR='GRAY'/ fin  mur sous l'escalier
+
+
+
+
+
+        -Salle des billets
+
+&HOLE XB= -0.8 , 0.1 , 2.8 , 4.7 , 6.8 , 8.9 / Sorties coté CHR
+&HOLE XB= -0.8 , 0.1 , -6.1 , -4.2 , 6.8 , 8.9 /
+
+
+&OBST	XB=	0	,	0.2	,	2.8	,	2.6	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	Distributeurs
+&OBST	XB=	0	,	0.4	,	2.6	,	2.4	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	0.6	,	2.4	,	2.2	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	0.8	,	2.2	,	2	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	1	,	2	,	1.8	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	1.2	,	1.8	,	1.6	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	1.4	,	1.6	,	1.4	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	1.6	,	1.4	,	1.2	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	1.8	,	1.2	,	1	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	2	,	1	,	0.8	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	2.2	,	0.8	,	0.6	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	2.4	,	0.6	,	0.4	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST	XB=	0	,	2.6	,	0.4	,	0.2	,	6.8	,	9.9	,	TRANSPARENCY=0.3	,	COLOR='BLUE'/	
+&OBST XB= 0 , 2.6 , 0.2 , -1.2 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 0.2 , -3.8 , -3.6 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 0.4 , -3.6 , -3.4 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 0.6 , -3.4 , -3.2 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 0.8 , -3.2 , -3 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 1 , -3 , -2.8 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 1.2 , -2.8 , -2.6 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 1.4 , -2.6 , -2.4 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 1.6 , -2.4 , -2.2 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 1.8 , -2.2 , -2 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 2 , -2 , -1.8 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 2.2 , -1.8 , -1.6 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 2.4 , -1.6 , -1.4 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 0 , 2.6 , -1.4 , -1.2 , 6.8 , 9.9 ,   TRANSPARENCY=0.3 , COLOR='BLUE'/ fin  Distributeurs
+
+
+	-Locaux (coté y < 0)
+&OBST XB= 3.1 , 3.3 , -3.8 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.9 , 3.1 , -4 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.7 , 2.9 , -4.2 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.5 , 2.7 , -4.4 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.3 , 2.5 , -4.6 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.1 , 2.3 , -4.8 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.9 , 2.1 , -5 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.7 , 1.9 , -5.2 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.5 , 1.7 , -5.4 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.3 , 1.5 , -5.6 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 1.1 , 1.3 , -5.8 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.3 , 7.3 , -3.8 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.3 , 7.5 , -4 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.5 , 7.7 , -4.2 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.7 , 7.9 , -4.4 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.9 , 8.1 , -4.6 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.1 , 8.3 , -4.8 , -6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.3 , 8.5 , -6.1 , -5 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.5 , 8.7 , -6.1 , -5.2 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.7 , 8.9 , -6.1 , -5.4 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.9 , 9.1 , -6.1 , -5.6 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 9.1 , 9.3 , -6.1 , -5.8 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+
+	-Locaux (coté y>0)
+&OBST XB= 0 , 2.3 , 4.7 , 6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.3 , 7.3 , 6.1 , 3.8 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.3 , 7.5 , 6.1 , 4 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.5 , 7.7 , 6.1 , 4.2 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.7 , 7.9 , 6.1 , 4.4 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 7.9 , 8.1 , 6.1 , 4.6 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.1 , 8.3 , 6.1 , 4.8 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.3 , 8.5 , 6.1 , 5 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.5 , 8.7 , 6.1 , 5.2 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.7 , 8.9 , 6.1 , 5.4 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 8.9 , 9.1 , 6.1 , 5.6 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 9.1 , 9.3 , 6.1 , 5.8 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 3.1 , 3.3 , 3.8 , 6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.9 , 3.1 , 4 , 6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.7 , 2.9 , 4.2 , 6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.5 , 2.7 , 4.4 , 6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+&OBST XB= 2.3 , 2.5 , 4.6 , 6.1 , 6.8 , 9.9 ,  TRANSPARENCY=0.3 , COLOR='BLUE'/
+
+
+
+
+
+
+	
+
+	-Liaison à la surface (escalier de secours)
+
+
+ESCALIER SECOURS SUPERIEUR       	
+
+Encloisonnement escalier (niv-1)       	
+OBST   XB= 29.7 , 30.0 , -2.0 , -0.2 , 3.4 , 6.1 , COLOR='GRAY' , TRANSPARENCY=0.3/	
+OBST   XB= 29.7 , 37.9 , -2.3 , -2.0 , 3.4 , 6.1 , COLOR='GRAY' , TRANSPARENCY=0.3/	
+OBST   XB= 29.7 , 37.9 , -0.2 , 0.1 , 3.4 , 6.1 , COLOR='GRAY' , TRANSPARENCY=0.3/	
+OBST   XB= 37.6 , 37.9 , -2.0 , -0.3 , 3.4 , 6.1 , COLOR='GRAY' , TRANSPARENCY=0.3/	
+ 
+&OBST   XB= 29.7 , 37.9 , -2.3 , 0.1 , 3.4 , 6.1 , COLOR='GRAY' , TRANSPARENCY=0.7/	       	
+
+
+		///////////////////////////////////////////
+
+	ESCALIER DE SECOURS COTE CHR
+
+       	
+Parois latérales																			
+&OBST 	XB=	-26.2	,	-0.7	,	-6.4	,	-6.1	,	3.4	,	14.4	,COLOR='GRAY', TRANSPARENCY=0.3/						
+&OBST 	XB=	-26.2	,	-0.7	,	-4.2	,	-3.9	,	3.4	,	14.4	,COLOR='GRAY', TRANSPARENCY=0.3/						
+&OBST 	XB=	-26.2	,	-0.7	,	2.5	,	2.8	,	3.4	,	14.4	,COLOR='GRAY', TRANSPARENCY=0.3/						
+&OBST 	XB=	-26.2	,	-0.7	,	4.7	,	5.0	,	3.4	,	14.4	,COLOR='GRAY', TRANSPARENCY=0.3/						
+		
+
+
+
+ESCALIER NIV-2 vers NIV 0																			
+Marches																			
+&OBST	XB=	-7.1	,	-26.2	,	-6.1	,	-4.2	,	3.4	,	3.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.4	,	-26.2	,	-6.1	,	-4.2	,	3.6	,	3.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.8	,	-26.2	,	-6.1	,	-4.2	,	3.8	,	4.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.1	,	-26.2	,	-6.1	,	-4.2	,	4.0	,	4.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.5	,	-26.2	,	-6.1	,	-4.2	,	4.2	,	4.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.8	,	-26.2	,	-6.1	,	-4.2	,	4.4	,	4.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.2	,	-26.2	,	-6.1	,	-4.2	,	4.6	,	4.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.5	,	-26.2	,	-6.1	,	-4.2	,	4.8	,	5.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.9	,	-26.2	,	-6.1	,	-4.2	,	5.0	,	5.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.2	,	-26.2	,	-6.1	,	-4.2	,	5.2	,	5.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.6	,	-26.2	,	-6.1	,	-4.2	,	5.4	,	5.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.9	,	-26.2	,	-6.1	,	-4.2	,	5.6	,	5.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.3	,	-26.2	,	-6.1	,	-4.2	,	5.8	,	6.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.6	,	-26.2	,	-6.1	,	-4.2	,	6.0	,	6.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.0	,	-26.2	,	-6.1	,	-4.2	,	6.2	,	6.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.3	,	-26.2	,	-6.1	,	-4.2	,	6.4	,	6.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.7	,	-26.2	,	-6.1	,	-4.2	,	6.6	,	6.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.0	,	-26.2	,	-6.1	,	-4.2	,	6.8	,	7.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.4	,	-26.2	,	-6.1	,	-4.2	,	7.0	,	7.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.7	,	-26.2	,	-6.1	,	-4.2	,	7.2	,	7.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.0	,	-26.2	,	-6.1	,	-4.2	,	7.4	,	7.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.4	,	-26.2	,	-6.1	,	-4.2	,	7.6	,	7.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.7	,	-26.2	,	-6.1	,	-4.2	,	7.8	,	8.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-15.1	,	-26.2	,	-6.1	,	-4.2	,	8.0	,	8.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-15.4	,	-26.2	,	-6.1	,	-4.2	,	8.2	,	8.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-15.8	,	-26.2	,	-6.1	,	-4.2	,	8.4	,	8.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-16.1	,	-26.2	,	-6.1	,	-4.2	,	8.6	,	8.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-16.5	,	-26.2	,	-6.1	,	-4.2	,	8.8	,	9.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-16.8	,	-26.2	,	-6.1	,	-4.2	,	9.0	,	9.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-17.2	,	-26.2	,	-6.1	,	-4.2	,	9.2	,	9.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-17.5	,	-26.2	,	-6.1	,	-4.2	,	9.4	,	9.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-17.9	,	-26.2	,	-6.1	,	-4.2	,	9.6	,	9.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-18.2	,	-26.2	,	-6.1	,	-4.2	,	9.8	,	10.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-18.6	,	-26.2	,	-6.1	,	-4.2	,	10.0	,	10.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-18.9	,	-26.2	,	-6.1	,	-4.2	,	10.2	,	10.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-19.3	,	-26.2	,	-6.1	,	-4.2	,	10.4	,	10.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-19.6	,	-26.2	,	-6.1	,	-4.2	,	10.6	,	10.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-19.9	,	-26.2	,	-6.1	,	-4.2	,	10.8	,	11.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-20.3	,	-26.2	,	-6.1	,	-4.2	,	11.0	,	11.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-20.6	,	-26.2	,	-6.1	,	-4.2	,	11.2	,	11.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-21.0	,	-26.2	,	-6.1	,	-4.2	,	11.4	,	11.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-21.3	,	-26.2	,	-6.1	,	-4.2	,	11.6	,	11.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-21.7	,	-26.2	,	-6.1	,	-4.2	,	11.8	,	12.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-22.0	,	-26.2	,	-6.1	,	-4.2	,	12.0	,	12.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-22.4	,	-26.2	,	-6.1	,	-4.2	,	12.2	,	12.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-22.7	,	-26.2	,	-6.1	,	-4.2	,	12.4	,	12.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-23.1	,	-26.2	,	-6.1	,	-4.2	,	12.6	,	12.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-23.4	,	-26.2	,	-6.1	,	-4.2	,	12.8	,	13.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-23.8	,	-26.2	,	-6.1	,	-4.2	,	13.0	,	13.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-24.1	,	-26.2	,	-6.1	,	-4.2	,	13.2	,	13.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-24.5	,	-26.2	,	-6.1	,	-4.2	,	13.4	,	13.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-24.8	,	-26.2	,	-6.1	,	-4.2	,	13.6	,	13.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-25.2	,	-26.2	,	-6.1	,	-4.2	,	13.8	,	14.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-25.5	,	-26.2	,	-6.1	,	-4.2	,	14.0	,	14.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-25.9	,	-26.2	,	-6.1	,	-4.2	,	14.2	,	14.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+planfond esc niv -2 vs niv 0 couloir d'entrée																			
+&OBST	XB=	-7.1	,	-0.7	,	-6.1	,	-4.2	,	6.0	,	6.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.4	,	-0.7	,	-6.1	,	-4.2	,	6.2	,	6.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.8	,	-0.7	,	-6.1	,	-4.2	,	6.4	,	6.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.1	,	-0.7	,	-6.1	,	-4.2	,	6.6	,	6.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+																			
+																			
+ESCALIER NIV-1 vers NIV 0																			
+marches esc niv-1 vers niv0 + plafond esc niv-2 vers niv 0																			
+&OBST	XB=	-1.5	,	-8.6	,	-6.1	,	-4.2	,	6.8	,	7.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-1.8	,	-8.9	,	-6.1	,	-4.2	,	7.0	,	7.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.2	,	-9.3	,	-6.1	,	-4.2	,	7.2	,	7.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.5	,	-9.6	,	-6.1	,	-4.2	,	7.4	,	7.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.9	,	-10.0	,	-6.1	,	-4.2	,	7.6	,	7.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.2	,	-10.3	,	-6.1	,	-4.2	,	7.8	,	8.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.6	,	-10.7	,	-6.1	,	-4.2	,	8.0	,	8.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.9	,	-11.0	,	-6.1	,	-4.2	,	8.2	,	8.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.3	,	-11.4	,	-6.1	,	-4.2	,	8.4	,	8.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.6	,	-11.7	,	-6.1	,	-4.2	,	8.6	,	8.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.0	,	-12.1	,	-6.1	,	-4.2	,	8.8	,	9.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.3	,	-12.4	,	-6.1	,	-4.2	,	9.0	,	9.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.7	,	-12.8	,	-6.1	,	-4.2	,	9.2	,	9.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.0	,	-13.1	,	-6.1	,	-4.2	,	9.4	,	9.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.3	,	-13.4	,	-6.1	,	-4.2	,	9.6	,	9.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.7	,	-13.8	,	-6.1	,	-4.2	,	9.8	,	10.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.0	,	-14.1	,	-6.1	,	-4.2	,	10.0	,	10.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.4	,	-14.5	,	-6.1	,	-4.2	,	10.2	,	10.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.7	,	-14.8	,	-6.1	,	-4.2	,	10.4	,	10.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.1	,	-15.2	,	-6.1	,	-4.2	,	10.6	,	10.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.4	,	-15.5	,	-6.1	,	-4.2	,	10.8	,	11.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.8	,	-15.9	,	-6.1	,	-4.2	,	11.0	,	11.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.1	,	-16.2	,	-6.1	,	-4.2	,	11.2	,	11.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.5	,	-16.6	,	-6.1	,	-4.2	,	11.4	,	11.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.8	,	-16.9	,	-6.1	,	-4.2	,	11.6	,	11.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.2	,	-17.3	,	-6.1	,	-4.2	,	11.8	,	12.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.5	,	-17.6	,	-6.1	,	-4.2	,	12.0	,	12.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.9	,	-18.0	,	-6.1	,	-4.2	,	12.2	,	12.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.2	,	-18.3	,	-6.1	,	-4.2	,	12.4	,	12.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.5	,	-18.6	,	-6.1	,	-4.2	,	12.6	,	12.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.9	,	-19.0	,	-6.1	,	-4.2	,	12.8	,	13.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.2	,	-19.3	,	-6.1	,	-4.2	,	13.0	,	13.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.6	,	-19.7	,	-6.1	,	-4.2	,	13.2	,	13.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.9	,	-20.0	,	-6.1	,	-4.2	,	13.4	,	13.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.3	,	-20.4	,	-6.1	,	-4.2	,	13.6	,	13.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.6	,	-20.7	,	-6.1	,	-4.2	,	13.8	,	14.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.0	,	-21.1	,	-6.1	,	-4.2	,	14.0	,	14.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.3	,	-21.4	,	-6.1	,	-4.2	,	14.2	,	14.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+
+																			
+ plafond esc niv-1 vers niv 0																			
+&OBST	XB=	-1.5	,	-0.7	,	-6.1	,	-4.2	,	9.8	,	10.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-1.8	,	-0.7	,	-6.1	,	-4.2	,	10.0	,	10.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.2	,	-0.7	,	-6.1	,	-4.2	,	10.2	,	10.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.5	,	-0.7	,	-6.1	,	-4.2	,	10.4	,	10.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.9	,	-0.7	,	-6.1	,	-4.2	,	10.6	,	10.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.2	,	-0.7	,	-6.1	,	-4.2	,	10.8	,	11.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.6	,	-0.7	,	-6.1	,	-4.2	,	11.0	,	11.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.9	,	-0.7	,	-6.1	,	-4.2	,	11.2	,	11.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.2	,	-0.7	,	-6.1	,	-4.2	,	11.4	,	11.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.6	,	-0.7	,	-6.1	,	-4.2	,	11.6	,	11.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.9	,	-0.7	,	-6.1	,	-4.2	,	11.8	,	12.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.3	,	-0.7	,	-6.1	,	-4.2	,	12.0	,	12.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.6	,	-0.7	,	-6.1	,	-4.2	,	12.2	,	12.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.9	,	-0.7	,	-6.1	,	-4.2	,	12.4	,	12.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.3	,	-0.7	,	-6.1	,	-4.2	,	12.6	,	12.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.6	,	-0.7	,	-6.1	,	-4.2	,	12.8	,	13.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.0	,	-0.7	,	-6.1	,	-4.2	,	13.0	,	13.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.3	,	-0.7	,	-6.1	,	-4.2	,	13.2	,	13.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.7	,	-0.7	,	-6.1	,	-4.2	,	13.4	,	13.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.0	,	-0.7	,	-6.1	,	-4.2	,	13.6	,	13.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.3	,	-0.7	,	-6.1	,	-4.2	,	13.8	,	14.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.7	,	-0.7	,	-6.1	,	-4.2	,	14.0	,	14.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.0	,	-0.7	,	-6.1	,	-4.2	,	14.2	,	14.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+
+ESCALIER NIV-2 vers NIV 0																			
+Marches																			
+&OBST	XB=	-7.1	,	-26.2	,	2.8	,	4.7	,	3.4	,	3.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.4	,	-26.2	,	2.8	,	4.7	,	3.6	,	3.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.8	,	-26.2	,	2.8	,	4.7	,	3.8	,	4.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.1	,	-26.2	,	2.8	,	4.7	,	4.0	,	4.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.5	,	-26.2	,	2.8	,	4.7	,	4.2	,	4.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.8	,	-26.2	,	2.8	,	4.7	,	4.4	,	4.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.2	,	-26.2	,	2.8	,	4.7	,	4.6	,	4.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.5	,	-26.2	,	2.8	,	4.7	,	4.8	,	5.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.9	,	-26.2	,	2.8	,	4.7	,	5.0	,	5.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.2	,	-26.2	,	2.8	,	4.7	,	5.2	,	5.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.6	,	-26.2	,	2.8	,	4.7	,	5.4	,	5.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.9	,	-26.2	,	2.8	,	4.7	,	5.6	,	5.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.3	,	-26.2	,	2.8	,	4.7	,	5.8	,	6.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.6	,	-26.2	,	2.8	,	4.7	,	6.0	,	6.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.0	,	-26.2	,	2.8	,	4.7	,	6.2	,	6.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.3	,	-26.2	,	2.8	,	4.7	,	6.4	,	6.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.7	,	-26.2	,	2.8	,	4.7	,	6.6	,	6.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.0	,	-26.2	,	2.8	,	4.7	,	6.8	,	7.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.4	,	-26.2	,	2.8	,	4.7	,	7.0	,	7.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.7	,	-26.2	,	2.8	,	4.7	,	7.2	,	7.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.0	,	-26.2	,	2.8	,	4.7	,	7.4	,	7.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.4	,	-26.2	,	2.8	,	4.7	,	7.6	,	7.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.7	,	-26.2	,	2.8	,	4.7	,	7.8	,	8.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-15.1	,	-26.2	,	2.8	,	4.7	,	8.0	,	8.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-15.4	,	-26.2	,	2.8	,	4.7	,	8.2	,	8.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-15.8	,	-26.2	,	2.8	,	4.7	,	8.4	,	8.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-16.1	,	-26.2	,	2.8	,	4.7	,	8.6	,	8.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-16.5	,	-26.2	,	2.8	,	4.7	,	8.8	,	9.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-16.8	,	-26.2	,	2.8	,	4.7	,	9.0	,	9.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-17.2	,	-26.2	,	2.8	,	4.7	,	9.2	,	9.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-17.5	,	-26.2	,	2.8	,	4.7	,	9.4	,	9.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-17.9	,	-26.2	,	2.8	,	4.7	,	9.6	,	9.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-18.2	,	-26.2	,	2.8	,	4.7	,	9.8	,	10.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-18.6	,	-26.2	,	2.8	,	4.7	,	10.0	,	10.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-18.9	,	-26.2	,	2.8	,	4.7	,	10.2	,	10.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-19.3	,	-26.2	,	2.8	,	4.7	,	10.4	,	10.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-19.6	,	-26.2	,	2.8	,	4.7	,	10.6	,	10.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-19.9	,	-26.2	,	2.8	,	4.7	,	10.8	,	11.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-20.3	,	-26.2	,	2.8	,	4.7	,	11.0	,	11.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-20.6	,	-26.2	,	2.8	,	4.7	,	11.2	,	11.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-21.0	,	-26.2	,	2.8	,	4.7	,	11.4	,	11.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-21.3	,	-26.2	,	2.8	,	4.7	,	11.6	,	11.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-21.7	,	-26.2	,	2.8	,	4.7	,	11.8	,	12.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-22.0	,	-26.2	,	2.8	,	4.7	,	12.0	,	12.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-22.4	,	-26.2	,	2.8	,	4.7	,	12.2	,	12.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-22.7	,	-26.2	,	2.8	,	4.7	,	12.4	,	12.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-23.1	,	-26.2	,	2.8	,	4.7	,	12.6	,	12.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-23.4	,	-26.2	,	2.8	,	4.7	,	12.8	,	13.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-23.8	,	-26.2	,	2.8	,	4.7	,	13.0	,	13.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-24.1	,	-26.2	,	2.8	,	4.7	,	13.2	,	13.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-24.5	,	-26.2	,	2.8	,	4.7	,	13.4	,	13.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-24.8	,	-26.2	,	2.8	,	4.7	,	13.6	,	13.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-25.2	,	-26.2	,	2.8	,	4.7	,	13.8	,	14.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-25.5	,	-26.2	,	2.8	,	4.7	,	14.0	,	14.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-25.9	,	-26.2	,	2.8	,	4.7	,	14.2	,	14.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+planfond esc niv -2 vs niv 0 couloir d'entrée																			
+&OBST	XB=	-7.1	,	-0.7	,	2.8	,	4.7	,	6.0	,	6.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.4	,	-0.7	,	2.8	,	4.7	,	6.2	,	6.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.8	,	-0.7	,	2.8	,	4.7	,	6.4	,	6.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.1	,	-0.7	,	2.8	,	4.7	,	6.6	,	6.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+																			
+																			
+ESCALIER NIV-1 vers NIV 0																			
+marches esc niv-1 vers niv0 + plafond esc niv-2 vers niv 0																			
+&OBST	XB=	-1.5	,	-8.6	,	2.8	,	4.7	,	6.8	,	7.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-1.8	,	-8.9	,	2.8	,	4.7	,	7.0	,	7.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.2	,	-9.3	,	2.8	,	4.7	,	7.2	,	7.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.5	,	-9.6	,	2.8	,	4.7	,	7.4	,	7.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.9	,	-10.0	,	2.8	,	4.7	,	7.6	,	7.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.2	,	-10.3	,	2.8	,	4.7	,	7.8	,	8.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.6	,	-10.7	,	2.8	,	4.7	,	8.0	,	8.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.9	,	-11.0	,	2.8	,	4.7	,	8.2	,	8.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.3	,	-11.4	,	2.8	,	4.7	,	8.4	,	8.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.6	,	-11.7	,	2.8	,	4.7	,	8.6	,	8.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.0	,	-12.1	,	2.8	,	4.7	,	8.8	,	9.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.3	,	-12.4	,	2.8	,	4.7	,	9.0	,	9.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.7	,	-12.8	,	2.8	,	4.7	,	9.2	,	9.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.0	,	-13.1	,	2.8	,	4.7	,	9.4	,	9.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.3	,	-13.4	,	2.8	,	4.7	,	9.6	,	9.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.7	,	-13.8	,	2.8	,	4.7	,	9.8	,	10.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.0	,	-14.1	,	2.8	,	4.7	,	10.0	,	10.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.4	,	-14.5	,	2.8	,	4.7	,	10.2	,	10.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.7	,	-14.8	,	2.8	,	4.7	,	10.4	,	10.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.1	,	-15.2	,	2.8	,	4.7	,	10.6	,	10.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.4	,	-15.5	,	2.8	,	4.7	,	10.8	,	11.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.8	,	-15.9	,	2.8	,	4.7	,	11.0	,	11.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.1	,	-16.2	,	2.8	,	4.7	,	11.2	,	11.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.5	,	-16.6	,	2.8	,	4.7	,	11.4	,	11.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.8	,	-16.9	,	2.8	,	4.7	,	11.6	,	11.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.2	,	-17.3	,	2.8	,	4.7	,	11.8	,	12.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.5	,	-17.6	,	2.8	,	4.7	,	12.0	,	12.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-10.9	,	-18.0	,	2.8	,	4.7	,	12.2	,	12.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.2	,	-18.3	,	2.8	,	4.7	,	12.4	,	12.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.5	,	-18.6	,	2.8	,	4.7	,	12.6	,	12.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-11.9	,	-19.0	,	2.8	,	4.7	,	12.8	,	13.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.2	,	-19.3	,	2.8	,	4.7	,	13.0	,	13.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.6	,	-19.7	,	2.8	,	4.7	,	13.2	,	13.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-12.9	,	-20.0	,	2.8	,	4.7	,	13.4	,	13.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.3	,	-20.4	,	2.8	,	4.7	,	13.6	,	13.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-13.6	,	-20.7	,	2.8	,	4.7	,	13.8	,	14.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.0	,	-21.1	,	2.8	,	4.7	,	14.0	,	14.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-14.3	,	-21.4	,	2.8	,	4.7	,	14.2	,	14.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+																			
+ plafond esc niv-1 vers niv 0																			
+&OBST	XB=	-1.5	,	-0.7	,	2.8	,	4.7	,	9.8	,	10.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-1.8	,	-0.7	,	2.8	,	4.7	,	10.0	,	10.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.2	,	-0.7	,	2.8	,	4.7	,	10.2	,	10.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.5	,	-0.7	,	2.8	,	4.7	,	10.4	,	10.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-2.9	,	-0.7	,	2.8	,	4.7	,	10.6	,	10.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.2	,	-0.7	,	2.8	,	4.7	,	10.8	,	11.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.6	,	-0.7	,	2.8	,	4.7	,	11.0	,	11.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-3.9	,	-0.7	,	2.8	,	4.7	,	11.2	,	11.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.2	,	-0.7	,	2.8	,	4.7	,	11.4	,	11.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.6	,	-0.7	,	2.8	,	4.7	,	11.6	,	11.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-4.9	,	-0.7	,	2.8	,	4.7	,	11.8	,	12.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.3	,	-0.7	,	2.8	,	4.7	,	12.0	,	12.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.6	,	-0.7	,	2.8	,	4.7	,	12.2	,	12.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-5.9	,	-0.7	,	2.8	,	4.7	,	12.4	,	12.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.3	,	-0.7	,	2.8	,	4.7	,	12.6	,	12.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-6.6	,	-0.7	,	2.8	,	4.7	,	12.8	,	13.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.0	,	-0.7	,	2.8	,	4.7	,	13.0	,	13.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.3	,	-0.7	,	2.8	,	4.7	,	13.2	,	13.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-7.7	,	-0.7	,	2.8	,	4.7	,	13.4	,	13.6		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.0	,	-0.7	,	2.8	,	4.7	,	13.6	,	13.8		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.3	,	-0.7	,	2.8	,	4.7	,	13.8	,	14.0		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-8.7	,	-0.7	,	2.8	,	4.7	,	14.0	,	14.2		,COLOR='GRAY', TRANSPARENCY=0.7/					
+&OBST	XB=	-9.0	,	-0.7	,	2.8	,	4.7	,	14.2	,	14.4		,COLOR='GRAY', TRANSPARENCY=0.7/					
+
+
+
+
+
+
+              //////////////// MESURE /////////////////
+    	
+&SLCF PBY=5.0, QUANTITY='TEMPERATURE' /
+&SLCF PBY=-5.0, QUANTITY='TEMPERATURE' /
+&SLCF PBY=0, QUANTITY='TEMPERATURE' /       	
+&SLCF PBY=2.5, QUANTITY='TEMPERATURE' /
+&SLCF PBY=-2.5, QUANTITY='TEMPERATURE' /
+
+&SLCF PBY=5.0, QUANTITY='VELOCITY' /
+&SLCF PBY=-5.0, QUANTITY='VELOCITY' /
+&SLCF PBY=0, QUANTITY='VELOCITY' /       	
+&SLCF PBY=2.5, QUANTITY='VELOCITY' /
+&SLCF PBY=-2.5, QUANTITY='VELOCITY' /
+&SLCF PBY=3.3, QUANTITY='VELOCITY' /
+&SLCF PBY=-3.3, QUANTITY='VELOCITY' /
+&SLCF PBY=-5.1, QUANTITY='VELOCITY' /
+&SLCF PBY=4.2, QUANTITY='VELOCITY' /
+&SLCF PBY=-4.2, QUANTITY='VELOCITY' /
+
+&DEVC XB= 0 , 0 , 2.8 , 4.7 , 6.8 , 9.8 , QUANTITY='VOLUME FLOW' ,ID='sortie niv -1 nord'/
+&DEVC XB= 0 , 0 , 2.8 , 4.7 , 3.4 , 6.8 , QUANTITY='VOLUME FLOW',ID='sortie niv -2 nord'/
+&DEVC XB= 0 , 0 , -6.1 , -4.2 , 6.8 , 9.8 , QUANTITY='VOLUME FLOW',ID='sortie niv -1 sud'/
+&DEVC XB= 0 , 0 , -6.1 , -4.2 , 3.4 , 6.8 , QUANTITY='VOLUME FLOW',ID='sortie niv -2 sud'/
+&DEVC XB= 7.6 , 14.4 , -6.1 , -4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 1.2'/
+&DEVC XB= 23.9 , 28.3 , -6.1 , -4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 2.2'/
+&DEVC XB= 23.9 , 21 , -6.1 , -4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 2.2'/
+&DEVC XB= 34.5 , 41.3 , -6.1 , -4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 3.2'/
+&DEVC XB= 47.1 , 50.6 , -6.1 , -4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 4.2'/
+&DEVC XB= 47.1 , 43.8 , -6.1 , -4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 4.2'/
+&DEVC XB= 7.6 , 14.4 , 6.1 , 4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 1.1'/
+&DEVC XB= 23.9 , 28.3 , 6.1 , 4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 2.1'/
+&DEVC XB= 23.9 , 21 , 6.1 , 4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 2.1'/
+&DEVC XB= 34.5 , 41.3 , 6.1 , 4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 3.1'/
+&DEVC XB= 43.8 , 47.1 , 6.1 , 4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 4.1'/
+&DEVC XB= 50.6 , 47.1 , 6.1 , 4.4 , 3.4 , 3.4 , QUANTITY='VOLUME FLOW',ID='escalier 4.1'/
+	//////////////////////////////////////
+
+
+
+
+
+
+
+
+
+&TAIL /
